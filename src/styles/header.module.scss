@@ -1,0 +1,129 @@
+.header {
+  padding: .5rem 1rem .1rem 1rem;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 10vh;
+}
+
+.header-pic {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 80%;
+}
+
+.home-Carusal{
+  repeat: no-repeat;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.menu {
+  text-align: center;
+  list-style-type: none;
+  justify-content: space-evenly;
+  border-bottom: .07rem solid #C8C8C8;
+  border-top: .07rem solid #C8C8C8;
+  font-size: .9em;
+}
+
+.menu2 {
+  text-align: right;
+  list-style-type: none;
+  display: inline-flex;
+  float: right;
+  margin: .5em;
+  font-size: .9em;
+}
+
+.nav-bar {
+  display: inline-flex;
+  flex-flow: row nowrap;
+}
+
+.menu-item {
+  text-decoration: none;
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: row nowrap;
+  align-items: left;
+  padding: .5rem;
+  font-size: 1.2em;
+  font-family: arial;
+  color: #999999;
+  background-color: white;
+  border: none;
+}
+
+.menu-item:hover{
+  color: black;
+  background-color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.menu-right {
+  color: #999999;
+  text-decoration: none;
+  margin-left: 1em;
+  vertical-align:baseline;
+}
+
+.menu-rightEN {
+    color: #999999;
+    vertical-align:baseline;
+    margin-left: .2em;
+}
+
+.menu-item:hover {
+  color: black;
+}
+
+.menu-item:active {
+  background-color: white;
+  border: none;
+  color: black;
+}
+
+.active-nav-item {
+  color: black;
+  background-color: white;
+  border: none;
+}
+
+.menu-right:hover{
+  color: black;
+  text-decoration: none;
+}
+
+.menu-rightEN:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.search-styling {
+  display: inline-flex;
+  justify-content: flex-end;
+  margin-top: .5em;
+}
+
+.btn-search-styling {
+  border-radius: 5px 5px 5px 5px;
+  border-color: #0072bc;
+  background-color: white;
+  font-family: arial;
+}
+
+.input-search-styling {
+  border-bottom: solid;
+  margin-right: 1em;
+}
+
+.btn-search-styling:hover {
+  background-color: #0072bc;
+  color: white;
+}

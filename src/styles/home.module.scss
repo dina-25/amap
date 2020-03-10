@@ -1,0 +1,61 @@
+.body-width{
+  max-width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 2em;
+}
+
+.position{
+  float: right;
+  max-width: 85%;
+}
+
+
+.txt-style {
+  font-size: .9em;
+  justify-content: space-evenly;
+  font-family: arial;
+}
+
+.clearfix{
+  overflow:auto;
+}
+
+.clearfix::after{
+  content: "";
+  clear: both;
+  display:table;
+}
+
+
+.section2 {
+  display: inline-block;
+  justify-content: space-evenly;
+  font-family: arial;
+  font-size: .9em;
+  color: black;
+  margin-top: 1.5em;
+}
+
+.title-sec2 {
+  text-align: center;
+}
+.kompt-img-styling {
+  display: inline-block;
+  vertical-align: top;
+  width: 40%;
+  margin-top: 5vh;
+  margin-left: 0;
+}
+
+.sectionB {
+  display: inline-block;
+  text-align: left;
+  font-size: 1vw;
+  font-weight: lighter;
+  font-family: arial;
+  text-shadow: none;
+  color: black;
+  margin-left: 8vw;
+  margin-top: 5vh;
+}

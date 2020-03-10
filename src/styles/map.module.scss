@@ -1,0 +1,63 @@
+.leaflet-map{
+  height: 50vh;
+  width: 45vh;
+}
+
+
+.body-wrap{
+  margin: 0 auto;
+  width: 80%;
+}
+
+.right-column{
+  float: right;
+  width: 40%;
+  font-family: arial;
+}
+.left-column{
+  float: left;
+  width: 50%;
+  font-family: arial;
+}
+
+.contact-styling {
+  display: table;
+}
+
+.underline{
+  background-color: #0072bc;
+  margin-top: 0;
+  border-width: thick;
+
+}
+
+.o-list-styling{
+  list-style: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  font-family: arial;
+}
+
+.arrow{
+  color: #0072bc;
+}
+
+.text{
+  margin-bottom: 0;
+  font-family: arial;
+}
+
+.contact-titles{
+  font-family: arial;
+  font-weight: 600;
+  font-size: .9vw;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.headers {
+  color: #0072bc;
+  font-family: arial;
+  font-size: 1.875vw;
+  margin-bottom: 0;
+}

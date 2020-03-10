@@ -1,0 +1,11 @@
+.container {
+    margin: 0 auto;
+    //padding: 1rem;
+    display: flex;
+    flex-direction:column;
+    max-width: 80%;
+}
+
+.content {
+  flex-grow: 1;
+}

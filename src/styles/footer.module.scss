@@ -1,0 +1,39 @@
+.footer {
+  margin: 0 auto;
+  width: 87%;
+  background-color: #0072bc;
+  color: white;
+  left: 0;
+  bottom: 0;
+  padding-left: 3rem;
+  padding-top: 1rem;
+  font-size: .8em;
+  font-family: arial;
+  margin-top: 1.8rem;
+  overflow: hidden;
+}
+
+
+.menu-footer {
+    display: flex;
+    text-align: center;
+    list-style-type: none;
+    margin-left: 2rem;
+}
+
+.wrap {
+  display: inline-block;
+}
+
+.footer-item {
+  text-decoration: none;
+  position: relative;
+  margin-left: 2rem;
+  float: right;
+  color: white;
+}
+
+
+.footer-text {
+  display: inline-block;
+}
