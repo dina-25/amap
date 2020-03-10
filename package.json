@@ -1,0 +1,73 @@
+{
+  "name": "gatsby-starter-default",
+  "private": true,
+  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "version": "0.1.0",
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "dependencies": {
+    "@contentful/rich-text-react-renderer": "^13.4.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@fortawesome/react-fontawesome": "^0.1.9",
+    "bootstrap": "^4.4.1",
+    "contentful": "^7.10.0",
+    "gatsby": "^2.19.12",
+    "gatsby-cli": "^2.8.27",
+    "gatsby-env-variables": "^2.0.0",
+    "gatsby-image": "^2.2.34",
+    "gatsby-plugin-intl": "^0.3.2",
+    "gatsby-plugin-manifest": "^2.2.38",
+    "gatsby-plugin-offline": "^3.0.32",
+    "gatsby-plugin-react-helmet": "^3.1.21",
+    "gatsby-plugin-sass": "^2.1.27",
+    "gatsby-plugin-sharp": "^2.4.0",
+    "gatsby-remark-images": "^3.1.42",
+    "gatsby-remark-images-contentful": "^2.1.30",
+    "gatsby-remark-relative-images": "^0.2.3",
+    "gatsby-source-contentful": "^2.1.85",
+    "gatsby-source-filesystem": "^2.1.39",
+    "gatsby-transformer-remark": "^2.6.48",
+    "gatsby-transformer-sharp": "^2.3.13",
+    "google-map-react": "^1.1.6",
+    "leaflet": "^1.6.0",
+    "mdbreact": "^4.25.0",
+    "node-sass": "^4.13.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-dropdown": "^1.6.4",
+    "react-geocode": "^0.2.1",
+    "react-helmet": "^5.2.1",
+    "react-hot-loader": "^4.12.19",
+    "react-icons": "^3.9.0",
+    "react-leaflet": "^2.6.1",
+    "react-pdf-to-image": "^1.0.2",
+    "reactstrap": "^8.4.1",
+    "semantic-ui-react": "^0.88.2",
+    "styled-components": "^4.4.1"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.0.1",
+    "prettier": "^1.19.1"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "env-cmd .env.development gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}
