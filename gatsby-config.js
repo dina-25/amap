@@ -10,8 +10,8 @@ module.exports = {
     {
         resolve: 'gatsby-source-contentful',
         options: {
-            spaceId: `5y1ildulrl28`,
-            accessToken:`S-6IkBOVQtxXOmqUOeUonFAhZn0TWrv_TGx_I7qXUME`
+            spaceId: '*****',
+            accessToken:`*****`
         },
     },
     `gatsby-plugin-react-helmet`,
