@@ -1,31 +1,31 @@
 import React from 'react'
+import 'bootstrap'
 import { graphql, useStaticQuery } from 'gatsby'
 import SEO from "../components/seo"
-import Layout from '../components/layout'
+import LayoutD from '../components/layoutDE'
 import homeStyle from '../styles/home.module.scss'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import SlidePic from '../components/homeCarusal'
+import Carousel from '../components/homeCarusal'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
+import '@fortawesome/fontawesome-free/css/all.min.css'
+import 'bootstrap-css-only/css/bootstrap.min.css'
+import 'mdbreact/dist/css/mdb.css'
+import NewsCard from "../components/card"
 
-
-
-const IndexPage = () => {
+const IndexPageDE = () => {
 
   const data = useStaticQuery(graphql`
 
       query{
-        allContentfulHomeMake(
+        werSindwir: allContentfulHomeMake(
           sort: {
               fields: title,
               order: DESC
-            }
-          filter: {
-            node_locale:{
-              eq: "de"
-            }
-          }
+            },
+
+              filter: {node_locale: {eq: "de"},
+
+              slug: {eq: "werSindWir"}}
             ){
             edges{
               node{
@@ -37,7 +37,47 @@ const IndexPage = () => {
           }
         }
 
-        contentfulAsset(title: {eq: "Wabe-de"}) {
+        wasMachenWir: allContentfulHomeMake(
+          sort: {
+              fields: title,
+              order: DESC
+            },
+
+              filter: {node_locale: {eq: "de"},
+
+              slug: {eq: "wasMachenWir"}}
+            ){
+            edges{
+              node{
+              title
+              details{
+                json
+              }
+            }
+          }
+        }
+
+        unserLeistung: allContentfulHomeMake(
+          sort: {
+              fields: title,
+              order: DESC
+            },
+
+              filter: {node_locale: {eq: "de"},
+
+              slug: {eq: "wasBietenWir"}}
+            ){
+            edges{
+              node{
+              title
+              details{
+                json
+              }
+            }
+          }
+        }
+
+      contentfulAsset(title: {eq: "kompetenz"}) {
           title
           file {
             url
@@ -47,57 +87,118 @@ const IndexPage = () => {
     `)
 
   return (
-    <Layout>
+    <LayoutD>
       <SEO title="Home" />
     <div className={homeStyle.bodyWidth}>
-      <SlidePic/>
-      <div className={homeStyle.position}>
-      {data.allContentfulHomeMake.edges.map((edge)=>{
-        return(
 
-            <div className={homeStyle.position}>
-                <div className={homeStyle.txtStyle}>
-                <div className={homeStyle.clearfix}>
-                  <h4 className={homeStyle.secTitle}>{edge.node.title}</h4>
-                  <p>{documentToReactComponents(edge.node.details.json)}</p>
-                </div>
-                </div>
-            </div>
-
-          )
+      <Carousel/>
+      <h3 className={homeStyle.titleStyling}>Unser Leistungsprofil</h3>
+      <div class="container">
+          <div class="row">
+            {data.werSindwir.edges.map((edge)=>{
+              const document = edge.node.details.json
+              return(
+                  <div className={homeStyle.colMd4}>
+                    <h4 className={homeStyle.secTitle}>{edge.node.title}</h4>
+                    {documentToReactComponents(document)}
+                  </div>
+              )
         })}
+
+          {data.wasMachenWir.edges.map((edge)=>{
+              const document = edge.node.details.json
+            return(
+                    <div className={homeStyle.colMd4}>
+                      <h4 className={homeStyle.secTitle}>{edge.node.title}</h4>
+                      {documentToReactComponents(document)}
+                    </div>
+                )
+          })}
+
+            {data.unserLeistung.edges.map((edge)=>{
+                const document = edge.node.details.json
+              return(
+                      <div className={homeStyle.colMd4}>
+                        <h4 className={homeStyle.secTitle}>{edge.node.title}</h4>
+                        {documentToReactComponents(document)}
+                      </div>
+                  )
+            })}
         </div>
-        <div className={homeStyle.section2}>
-          <h4 className={homeStyle.titleSec2}>Kompetenzen</h4>
-        <div className={homeStyle.sectionA}>
-          <img  className={homeStyle.komptImgStyling} src={data.contentfulAsset.file.url} alt={data.title}/>
-          <div className={homeStyle.sectionB}>
-            <p><b>A. Modellierung:</b>
-            <p>WERKSTOFF- und PRODUKTEIGENSCHAFTEN <br/>
-               PROZESSE (Gießen, Umformen, Wärmebehandeln) <br/>
-               PROZESSÜBERGREIFENDE MODELLIERUNG <br/>
-               (Through-Process-Modeling)</p></p>
-          <p><b>B. Produkt- und Werkstoffentwicklung:</b>
-          <p>PRODUKTENTWICKLUNG<br/>
-             OBERFLÄCHEN<br/>
-             LEGIERUNGSENTWICKLUNG<br/>
-             BESCHICHTUNG</p></p>
-          <p><b>D. Metallurgische Prozesstechnik:</b>
-          <p>SCHMELZEBEHANDLUNG<br/>
-             MESSTECHNIK<br/>
-             METALLRECYCLING<br/>
-             SCHMELZ- UND RAFFINATIONSPROZESSE</p></p>
-          <p><b>E. Fertigungstechnik:</b>
-          <p>GIESSEN<br/>
-             UMFORMEN<br/>
-             FÜGEN<br/>
-             WÄRMEBEHANDLUNG</p></p>
-          </div>
-          </div>
-        </div>
+
       </div>
-    </Layout>
+
+    <div className={homeStyle.feedback}>
+			<a href="/termine">Nächste Kolloquien</a>
+		</div>
+    <div className={homeStyle.feedback1}>
+			<a href="#news">Unser Neuigkeiten</a>
+		</div>
+
+
+        <h3 className={homeStyle.titleStyling}>Unsere Kompetenzen</h3>
+
+        <div class="container">
+          <div class="row" className={homeStyle.row}>
+            <div className={homeStyle.hexagonStyling}> <br/>Metallurgische Prozesstechnik</div>
+
+          </div>
+
+          <div class="row" className={homeStyle.row}>
+            <div className={homeStyle.hexagonStyling}><br/>Produkt-/Werkstoffentwicklung</div>
+
+          </div>
+          <div class="row" className={homeStyle.row}>
+            <div className={homeStyle.hexagonStyling}><br/> Fertigungstechnik</div>
+          </div>
+          <div class="row" className={homeStyle.row}>
+            <div className={homeStyle.hexagonStyling}><br/> Modellierung</div>
+          </div>
+
+          <div className={homeStyle.hexaLists}>
+            <ul>
+              <li>Schmelzbehandlung</li>
+              <li>Messtechnik</li>
+              <li>Recycling</li>
+              <li>Schmelz- und Raffinationsprozesse</li>
+            </ul>
+          </div>
+          <div className={homeStyle.hexaLists}>
+            <ul>
+              <li>  Produktentwicklung</li>
+              <li>  Oberflächen</li>
+              <li>Liegierungsentwicklung</li>
+              <li> Beschichtungen</li>
+            </ul>
+          </div>
+          <div className={homeStyle.hexaLists}>
+            <ul>
+              <li>Giesen</li>
+              <li>Umformen</li>
+              <li>Fügen</li>
+              <li>Wärmebehandlung</li>
+            </ul>
+          </div>
+          <div className={homeStyle.hexaLists}>
+            <ul>
+              <li>Materialeigenschaften</li>
+              <li>Produkteigenschaften</li>
+              <li>Guss- und Formgebungsprozesse, Wärmebehandlung</li>
+              <li>Prozessübergreifende Modellierung</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <h3 className={homeStyle.titleStyling}>Aktuelles</h3>
+        <div id="news">
+          <NewsCard/>
+        </div>
+
+    </div>
+
+    </LayoutD>
   )
 }
 
-export default IndexPage
+export default IndexPageDE

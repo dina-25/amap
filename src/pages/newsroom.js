@@ -1,30 +1,31 @@
 import React from 'react'
-import {Link, graphql, useStaticQuery} from 'gatsby'
-import Layout from '../components/layout'
+import { graphql, useStaticQuery} from 'gatsby'
+import Layout from '../components/layoutDE'
 import SEO from '../components/seo'
 import articleStyles from '../styles/article.module.scss'
 import newsStyles from '../styles/newsroom.module.scss'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import {MDBIcon } from 'mdbreact';
 
 const Newsroom = () => {
 
-  const data = useStaticQuery(graphql`
+ const pressQuery = useStaticQuery(graphql`
     query {
         allContentfulPresseArticle(
                   sort: {
                       fields: publichedDate,
                       order: DESC
-                    }
-                  filter: {
-                    node_locale: {
-                      eq: "de"
-                    }
-                  }
+                    }, filter: {node_locale: {eq: "de"}}
                   ){
                     edges {
                       node {
                         title
                         slug
+                        poster{
+                          file{
+                            url
+                          }
+                        }
                         publichedDate(formatString: "Do MMMM, YYYY")
                         vorschau{
                           json
@@ -34,10 +35,10 @@ const Newsroom = () => {
                             src
                           }
                         }
-                          }
-                        }
                       }
                     }
+                  }
+                }
 
 
     `)
@@ -48,18 +49,20 @@ const Newsroom = () => {
       <SEO title="Newsroom" />
       <div className={newsStyles.wrapper}>
       <ol className={articleStyles.articles}>
-        {data.allContentfulPresseArticle.edges.map((edge) => {
+        {pressQuery.allContentfulPresseArticle.edges.map((edge) => {
           return (
             <li className={articleStyles.article}>
-              <Link to={`/newsroom/${edge.node.slug}`}>
                 <h4>{edge.node.title}</h4>
                 <p>{edge.node.publischedDate}</p>
                 <div className={newsStyles.clearfix}>
-                  <img alt="" className={newsStyles.postImgStyle} src={edge.node.image.fluid.src}/>
+                    <img alt="" className={newsStyles.postImgStyle} src={edge.node.image.fluid.src}/>
                   <p className={newsStyles.postStyle}>{documentToReactComponents(edge.node.vorschau.json)}</p>
+                  <a href={edge.node.poster.file.url} className='black-text d-flex justify-content-end'>
+                    <h5>
+                      Weiter lesen
+                      <MDBIcon icon='angle-double-right' className='ml-2' />
+                    </h5></a>
                 </div>
-              </Link>
-
             </li>
           )
         })}

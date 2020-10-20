@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../components/layoutDE'
+import Layout from '../components/layout'
 import Map from '../components/mapComp'
 import mapStyling from '../styles/map.module.scss'
 import SEO from '../components/seo'
@@ -7,20 +7,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
 
 const ContactPage = () => {
-
   return (
     <div>
       <Layout>
-      <SEO title="Kontakt" />
+      <SEO title="Contact" />
   <div className={mapStyling.bodyWrap}>
   <div className={mapStyling.leftColumn}>
-    <p className={mapStyling.headers}>Kontakt</p>
+    <p className={mapStyling.headers}>Contact</p>
     <hr className={mapStyling.underline}/>
     <table>
       <tbody className={mapStyling.tableContact}>
         <tr>
-          <td>Adresse</td>
-          <td>Schurzelterstraße 570,
+          <td>Address</td>
+          <td>Schurzlterstraße 570
               52074 Aachen
           </td>
         </tr>
@@ -35,41 +34,36 @@ const ContactPage = () => {
         </tr>
         <tr>
           <td>E-mail</td>
-          <td><a href="mailto:info@amap.de">info[at]amap.de</a></td>
+          <td><a href="mailto:info@amap.de">info[@]amap.de</a></td>
         </tr>
       </tbody>
     </table>
-    <p className={mapStyling.headers}>Bewerbung</p>
+    <p className={mapStyling.headers}>Application</p>
     <hr className={mapStyling.underline}/>
-    <p className={mapStyling.contactTitles}>als Mitarbeiter in einem Forschungs-/Entwicklungsprojekt</p>
+    <p className={mapStyling.contactTitles}>for employment in R&D projects</p>
     <hr/>
-    <p className={mapStyling.text}>Ihre Bewerbung schicken Sie bitte</p>
+    <p className={mapStyling.text}>Please address your inquiry in writing or by e-mail to</p>
     <ol className={mapStyling.oListStyling}>
-      <li><FontAwesomeIcon icon={faArrowAltCircleRight} className={mapStyling.arrow}/> an die beteiligten Industriefirmen und/oder</li>
-      <li><FontAwesomeIcon icon={faArrowAltCircleRight} className={mapStyling.arrow}/> an die beteiligten RWTH-Institute</li><br/>
+      <li><FontAwesomeIcon icon={faArrowAltCircleRight} className={mapStyling.arrow}/> envolved partner industry companies and/or</li>
+      <li><FontAwesomeIcon icon={faArrowAltCircleRight} className={mapStyling.arrow}/> envolved partner institutes of RWTH university.</li><br/>
     </ol>
-    <p className={mapStyling.headers}>Mitgliedschaft</p>
+    <p className={mapStyling.headers}>Membership</p>
     <hr className={mapStyling.underline}/>
-    <p className={mapStyling.contactTitles}>als Partner im Forschungscluster AMAP</p>
+    <p className={mapStyling.contactTitles}>as partner in research cluster AMAP GmbH</p>
     <hr/>
-    <p>Ihre Anfragen richten Sie bitte</p>
+    <p>Please address your inquiry in writing or by e-mail to</p>
     <ol className={mapStyling.oListStyling}>
-      <li><FontAwesomeIcon icon={faArrowAltCircleRight} className={mapStyling.arrow}/> an die Geschäftsführung der AMAP GmbH</li>
+      <li><FontAwesomeIcon icon={faArrowAltCircleRight} className={mapStyling.arrow}/> AMAP management.</li>
     </ol>
   </div>
     <div className={mapStyling.rightColumn}>
       <div className={mapStyling.leafletMapStyle}>
-        <p className={mapStyling.headers}>So finden Sie AMAP</p>
+        <p className={mapStyling.headers}>How to find AMAP</p>
         <hr className={mapStyling.underline}/>
-        <p className={mapStyling.contactTitles}>Anfahrt</p>
+        <p className={mapStyling.contactTitles}>Directions</p>
         <Map />
       </div>
     </div>
-
-    <div className={mapStyling.contactForm}>
-
-    </div>
-
   </div>
       </Layout>
     </div>
