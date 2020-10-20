@@ -6,10 +6,11 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import projektStyles from '../styles/article.module.scss'
 
 export const data = graphql`
-  query($slug: String!){
-    contentfulAktuelleProjekte(slug: {eq: $slug}){
+  query Query($slug: String!, $locale: String){
+    contentfulAktuelleProjekte(slug: {eq: $slug}, node_locale: {eq: $locale }){
         title
-        content{
+        node_locale
+        vorschau{
           json
         }
         image{
@@ -30,7 +31,7 @@ const ProjektDetails = (props) => {
           <h1 className={projektStyles.titleStyle}>{props.data.contentfulAktuelleProjekte.title}</h1>
           <div className={projektStyles.bodyStyle}>
               <img alt="" src={props.data.contentfulAktuelleProjekte.image.fluid.src} className={projektStyles.imageStyle} />
-              <p className={projektStyles.inhaltStyle}>{documentToReactComponents(props.data.contentfulAktuelleProjekte.content.json)} </p>
+              <p className={projektStyles.inhaltStyle}>{documentToReactComponents(props.data.contentfulAktuelleProjekte.vorschau.json)} </p>
           </div>
       </div>
       </Layout>

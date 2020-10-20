@@ -6,11 +6,13 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import articleStyles from '../styles/article.module.scss'
 
 export const query = graphql`
-query($slug: String!)  {
-    contentfulPresseArticle(slug: {eq: $slug}){
+query ArticleQuery($slug: String!, $locale: String)  {
+    contentfulPresseArticle(slug: {eq: $slug}, node_locale: { eq: $locale }){
         title
+        slug
+        node_locale
         publichedDate(formatString: "Do MMMM, YYYY")
-        inhalt {
+        vorschau {
           json
         }
         image{
