@@ -25,13 +25,13 @@ const Footer = () => {
               <Link className={footerStyles.footerItem} to="/contact">Kontakt</Link>
         </li>
         <li>
-            <Link className={footerStyles.footerItem} to="/Impressum">Impressum</Link>
+            <Link className={footerStyles.footerItem} to="/impressum">Impressum</Link>
         </li>
         <li>
-            <Link className={footerStyles.footerItem} to="/datenSchutz">Datenschutz</Link>
+            <Link className={footerStyles.footerItem} to="/datenschutz">Datenschutz</Link>
         </li>
         <li>
-              <Link className={footerStyles.footerItem} to="/antitrust">Antitrust Reminder</Link>
+              <Link className={footerStyles.footerItem} to="/antitrustReminder">Antitrust Reminder</Link>
         </li>
       </ul>
      </div>

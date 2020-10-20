@@ -3,12 +3,12 @@ import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer }
 import {graphql, useStaticQuery} from "gatsby";
 import caroStyle from "../styles/carousel.module.scss"
 
-const CarouselPage = () => {
+const CarouselEN = () => {
 
   const data = useStaticQuery(graphql`
 
-    query imageSlider {
-      Statement1: contentfulHomeCarsaul(contentfulid: {eq: "statement1"}) {
+    query imageSliderEN {
+      Statement1: contentfulHomeCarsaul(contentfulid: {eq: "statement1"}, node_locale: {eq: "en"}) {
         	photo {
             fluid(quality: 10){
               src
@@ -16,7 +16,7 @@ const CarouselPage = () => {
           }
         }
 
-        Statement2: contentfulHomeCarsaul(contentfulid: {eq: "statement2"}) {
+        Statement2: contentfulHomeCarsaul(contentfulid: {eq: "statement2"}, node_locale: {eq: "en"}) {
           	photo {
               fluid(quality: 10){
                 src
@@ -24,9 +24,9 @@ const CarouselPage = () => {
             }
           }
 
-          Statement3: contentfulHomeCarsaul(contentfulid: {eq: "statement3"}) {
+          Statement3: contentfulHomeCarsaul(contentfulid: {eq: "statement3"}, node_locale: {eq: "en"}) {
             	photo {
-                fluid(quality: 10) {
+                fluid(quality: 10){
                   src
                 }
               }
@@ -37,7 +37,7 @@ const CarouselPage = () => {
 
   return (
     <MDBContainer>
-      <MDBCarousel activeItem={1} length={3} showControls={true} showIndicators={true} className="z-depth-1" >
+      <MDBCarousel activeItem={1} length={3} showControls={true} showIndicators={true} className="z-depth-1">
         <MDBCarouselInner>
           <MDBCarouselItem itemId="1">
             <MDBView>
@@ -60,4 +60,4 @@ const CarouselPage = () => {
   );
 }
 
-export default CarouselPage;
+export default CarouselEN;

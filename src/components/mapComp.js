@@ -4,6 +4,11 @@ import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css';
 import mapStyling from '../styles/map.module.scss'
 
+// Requiring function causes error during builds
+// as the code tries to reference window
+const module = require("module") // Error
+
+
 Leaflet.Icon.Default.imagePath =
 '../node_modules/leaflet'
 
@@ -15,13 +20,13 @@ Leaflet.Icon.Default.mergeOptions({
     shadowUrl: require('leaflet/dist/images/marker-shadow.png')
 });
 
+
 export default class MapComponent extends Component {
     state = {
       lat: 50.770420,
       lng: 6.038450,
-      zoom: 13,
+      zoom: 20,
   }
-
 
   render() {
     const position = [this.state.lat, this.state.lng];
@@ -34,7 +39,7 @@ export default class MapComponent extends Component {
         <Marker position={position}>
           <Popup>
             Amap GmbH <br/> Schurzelter Straße 570 <br/>
-52074 Aachen
+              52074 Aachen
           </Popup>
         </Marker>
       </Map>

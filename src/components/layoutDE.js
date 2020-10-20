@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Header from './headerEN'
+import Header from './headerDE'
 import Footer from './footer'
 import PropTypes from "prop-types"
 import '../styles/index.scss'
@@ -9,11 +9,10 @@ import LayoutStyles from '../styles/layout.module.scss'
 import headerStyles from '../styles/header.module.scss'
 
 
-
 const Layout = ({ children, intl }) => {
    const data = useStaticQuery(graphql`
      query{
-       contentfulAsset(title: {eq: "HeaderPhoto"}, node_locale: {eq: "en"}) {
+       contentfulAsset(title: {eq: "HeaderPhoto"}, node_locale: {eq: "de"}) {
          title
          file {
            url
