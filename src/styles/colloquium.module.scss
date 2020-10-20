@@ -1,8 +1,24 @@
 .button-styling{
-  display: inline-block;
+  display: block;
   float: right;
   background-color: #0072bc;
   color: white;
   border-style:none;
   border-radius: .2em;
+  font-family: arial;
+  padding: 0.4em;
+}
+
+.header-title {
+  float: right;
+  padding: 0.4em;
+  margin-bottom: 1em;
+}
+
+.image-style{
+  vertical-align: baseline;
+  margin-left: auto;
+  max-width: 130vh;
+  max-height: 100vh;
+  float: left;
 }
