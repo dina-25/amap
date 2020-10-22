@@ -1,0 +1,20 @@
+{
+  "title": "AMAP GmbH",
+  "description": "The Aluminium Research Cluster at the RWTH Aachen University",
+  "auther": "@amapGmbh",
+  "welcome": "Welcome to AMAP!",
+  "title_pageHome": "Home",
+  "title_pageIdeen": "Cooperation Ideas",
+  "title_pageTermin": "Events",
+  "title_pageKolloq": "Previous Colloquia",
+  "title_pageContact": "Contact us",
+  "title_pageSearch": "Areas of Research",
+  "title_pageKolloq": "Colloquia",
+  "title_pageImpressum": "Impressum",
+  "title_pageIdeen": "Cooperation ideas",
+  "title_pageNewsroom": "Newsroom",
+  "notfound": {
+    "header": "not found",
+    "description": "You just reached a router, that doesn't exist"
+  }
+}
