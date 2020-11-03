@@ -11,9 +11,13 @@ query ArticleQuery($slug: String!, $locale: String)  {
         title
         slug
         node_locale
-        publichedDate(formatString: "Do MMMM, YYYY")
         vorschau {
           json
+        }
+        poster{
+          file{
+            url
+          }
         }
         image{
           fluid{
@@ -32,10 +36,10 @@ const Article = (props) => {
           <SEO title={props.data.contentfulPresseArticle.title}/>
         <div className={articleStyles.container}>
           <h1 className={articleStyles.titleStyle}>{props.data.contentfulPresseArticle.title}</h1>
-          <p className={articleStyles.dateStyle}>{props.data.contentfulPresseArticle.publichedDate}</p>
           <div className={articleStyles.bodyStyle}>
               <img alt="" src={props.data.contentfulPresseArticle.image.fluid.src} className={articleStyles.imageStyle} />
-              <p className={articleStyles.inhaltStyle}>{documentToReactComponents(props.data.contentfulPresseArticle.inhalt.json)} </p>
+              <p className={articleStyles.inhaltStyle}>{documentToReactComponents(props.data.contentfulPresseArticle.vorschau.json)} </p>
+              <a href={props.data.contentfulPresseArticle.poster.file.url}></a>
           </div>
       </div>
       </Layout>
