@@ -1,0 +1,1 @@
+<button className={kolloqStyles.buttonStyling} href={edge.node.presentation.file.url} download>Präsentation</button>

@@ -1,13 +1,51 @@
 const path = require('path')
+const webpack = require('webpack');
 
-exports.onCreateWebpackConfig = ({ stage, loaders,actions }) => {
-
-    actions.setWebpackConfig({
-      node: {
-        fs: 'empty',
-        net: 'empty'
+exports.onCreateWebpackConfig = ({
+    stage,
+    rules,
+    loaders,
+    plugins,
+    actions,
+  }) => {
+    if (stage === "build-html") {
+        actions.setWebpackConfig({
+          module: {
+            rules: [
+              {
+                test: require.resolve('bootstrap'),
+                use: loaders.null(),
+              },
+              {
+                test: require.resolve('wowjs/dist/wow.js'),
+                use: loaders.null(),
+              },
+              {
+                test: require.resolve('jquery'),
+                use: loaders.null(),
+              },
+            ],
+          },
+        })
       }
-
+    actions.setWebpackConfig({
+        module: {
+            rules: [
+                {
+                    test: require.resolve('wowjs/dist/wow.js'),
+                    loader: 'exports-loader?this.WOW'
+                },
+            ],
+        },
+        plugins: [
+            new webpack.ProvidePlugin({
+                '$': "jquery",
+                'jQuery': "jquery",
+                'window.jQuery': 'jquery',
+                'Popper': 'popper.js',
+                "Bootstrap": "bootstrap.js"
+            }),
+        ],
     })
   }
 
@@ -45,7 +83,6 @@ exports.createPages = async ({ graphql, actions}) => {
       const articleTemplate = path.resolve('./src/templates/article.js')
       const projectTemplate = path.resolve('./src/templates/projekt.js')
       const abgProjectTemplate = path.resolve('./src/templates/abgProject.js')
-    //  const newsAktuelles = path.resolve('./src/component/card.js')
 
       if(res.errors){
         reporter.panicOnBuild(`Error while running GraphQL query.`)

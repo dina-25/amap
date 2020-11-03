@@ -1,5 +1,4 @@
 module.exports = {
-
   siteMetadata: {
     title: `AMAP GmbH`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
@@ -10,18 +9,10 @@ module.exports = {
         resolve: 'gatsby-source-contentful',
         options: {
             spaceId: `5y1ildulrl28`,
-            accessToken:`S-6IkBOVQtxXOmqUOeUonFAhZn0TWrv_TGx_I7qXUME`,
+            accessToken:`M3qba6e3l_1o2bjTnQJJf_1VRTAF-uo-pk7RXUWK8GU`,
         },
     },
-   {
-      resolve: `gatsby-plugin-intl`,
-      options: {
-        path: `${__dirname}/src/intl`,
-        languages: [`de`,`en`],
-        defaultLanguage: `en`,
-        redirect: false,
-      },
-    },
+
     `gatsby-plugin-react-helmet`,
 
     `gatsby-transformer-sharp`,
@@ -44,6 +35,13 @@ module.exports = {
 
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
+    {
+      resolve: 'gatsby-plugin-react-leaflet',
+      options: {
+        linkStyles: true,
+      },
+    },
+
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
