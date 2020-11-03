@@ -6,9 +6,8 @@ import LayoutD from '../components/layoutDE'
 import homeStyle from '../styles/home.module.scss'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Carousel from '../components/homeCarusal'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import '../../node_modules/bootstrap'
 import '@fortawesome/fontawesome-free/css/all.min.css'
-import 'bootstrap-css-only/css/bootstrap.min.css'
 import 'mdbreact/dist/css/mdb.css'
 import NewsCard from "../components/card"
 

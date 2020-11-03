@@ -9,7 +9,7 @@ import itemStyles from '../styles/article.module.scss'
 
 const AbgeschlosseneProjectsPage = () => {
 
-  const projQueryEn = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     query {
       allContentfulAbgeschlosseneProjekte(sort: {
                 fields: titel,
@@ -43,7 +43,7 @@ return (
     <SEO title="Finished Projects" />
     <div className={listStyles.wrapper}>
       <ol className={itemStyles.articles}>
-        {projQueryEn.allContentfulAbgeschlosseneProjekte.edges.map((edge) => {
+        {data.allContentfulAbgeschlosseneProjekte.edges.map((edge) => {
           return(
             <li className={itemStyles.article}>
                 <h4>{edge.node.titel}</h4>

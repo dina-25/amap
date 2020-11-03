@@ -10,7 +10,7 @@ import {MDBIcon } from 'mdbreact';
 
 const BisherigeK = () => {
 
-  const colloqEn = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     query KolloqENQuery{
       allContentfulBisherigeKolloquien201415(sort: {order: DESC, fields: titel}, filter: {hasLink: {eq: true}, node_locale: {eq: "en"}}) {
         edges{
@@ -105,7 +105,7 @@ const BisherigeK = () => {
       <SEO title="Bisherige Kolloquien" />
       <div className={newsStyles.wrapper}>
       <ol className={articleStyles.articles}>
-        {colloqEn.allContentfulBisherigeKolloquien202021.edges.map((edge) => {
+        {data.allContentfulBisherigeKolloquien202021.edges.map((edge) => {
           return (
             <li className={articleStyles.article}>
                 <div className={newsStyles.clearfix}>
@@ -124,7 +124,7 @@ const BisherigeK = () => {
       </ol>
 
       <ol className={articleStyles.articles}>
-        {colloqEn.allContentfulBisherigeKolloquien201819.edges.map((edge) => {
+        {data.allContentfulBisherigeKolloquien201819.edges.map((edge) => {
           return (
             <li className={articleStyles.article}>
                 <div className={newsStyles.clearfix}>
@@ -143,7 +143,7 @@ const BisherigeK = () => {
       </ol>
 
       <ol className={articleStyles.articles}>
-        {colloqEn.allContentfulBisherigeKolloquien201617.edges.map((edge) => {
+        {data.allContentfulBisherigeKolloquien201617.edges.map((edge) => {
           return (
             <li className={articleStyles.article}>
                 <div className={newsStyles.clearfix}>
@@ -162,7 +162,7 @@ const BisherigeK = () => {
       </ol>
 
       <ol className={articleStyles.articles}>
-        {colloqEn.allContentfulBisherigeKolloquien201415.edges.map((edge) => {
+        {data.allContentfulBisherigeKolloquien201415.edges.map((edge) => {
           return (
             <li className={articleStyles.article}>
                 <div className={newsStyles.clearfix}>
