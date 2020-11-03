@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import Header from './headerEN'
 import Footer from './footer'
 import PropTypes from "prop-types"

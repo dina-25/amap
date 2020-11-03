@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBRow, MDBCol, MDBIcon, MDBBtn } from 'mdbreact';
+import { MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBRow, MDBCol, MDBIcon } from 'mdbreact';
 import { graphql, useStaticQuery } from 'gatsby'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
