@@ -1,0 +1,77 @@
+.container {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+
+}
+
+.date-style {
+    margin-left: 1rem;
+    color: #777777;
+}
+
+.title-style {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+}
+
+.body-style {
+  float: right;
+  font-style: arial;
+  margin-left: 2rem;
+}
+
+.image-style{
+  vertical-align: baseline;
+  margin-left: auto;
+  max-width: 130vh;
+  max-height: 100vh;
+  float: left;
+}
+
+.date-styling {
+  font-weight: bold;
+  font-family: arial;
+
+}
+
+.calendar-icon {
+  float: left;
+  color: #0072bc;
+  width: 10vh;
+  margin-right: 1em;
+}
+
+.articles {
+    list-style-type: none;
+    margin-bottom: 1em;
+}
+
+.article {
+  margin-top: 1em;
+    a {
+        color: black;
+        display: block;
+        text-decoration: none;
+    }
+
+    h2 {
+      margin-top: 1em;
+      margin-bottom: .5em;
+      font-size: 30px;
+      line-height: 1.1;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 14px;
+      display: block;
+      color: black;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    border-bottom: 0.1em solid #C8C8C8;
+    padding: 0.5em;
+}

@@ -1,0 +1,5 @@
+{
+  "id": "extension1",
+  "name": "extension1",
+  "srcdoc": "./build/index.html"
+}
