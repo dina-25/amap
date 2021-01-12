@@ -60,8 +60,8 @@ module.exports = {
      `gatsby-plugin-offline`,
   ],
 
-module.exports =   {
-      pathPrefix: "/amap"
-    }
+
+pathPrefix: "/amap"
+
 
 }
