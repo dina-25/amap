@@ -4,9 +4,7 @@ module.exports = {
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `2021 AMAP GmbH`,
   },
-  {
-    pathPrefix: "/amap"
-  }
+
   plugins: [
     {
         resolve: 'gatsby-source-contentful',
@@ -61,5 +59,9 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
      `gatsby-plugin-offline`,
   ],
+
+module.exports =   {
+      pathPrefix: "/amap"
+    }
 
 }
