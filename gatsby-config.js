@@ -2,8 +2,11 @@ module.exports = {
   siteMetadata: {
     title: `AMAP GmbH`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `2020 AMAP GmbH`,
+    author: `2021 AMAP GmbH`,
   },
+  {
+    pathPrefix: "/amap"
+  }
   plugins: [
     {
         resolve: 'gatsby-source-contentful',
@@ -14,7 +17,6 @@ module.exports = {
     },
 
     `gatsby-plugin-react-helmet`,
-
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
@@ -33,6 +35,7 @@ module.exports = {
       },
     },
 
+
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
     {
@@ -45,13 +48,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `AMAP GmbH`,
+        short_name: `AMAP`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#0072bc`,
+        theme_color: `#0072bc`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/logo.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

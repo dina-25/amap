@@ -1,13 +1,13 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import SEO from "../components/seo"
-import Layout from '../components/layout'
-import homeStyle from '../styles/home.module.scss'
+import SEO from "../../components/seo"
+import Layout from '../../components/layout'
+import homeStyle from '../../styles/home.module.scss'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import SlidePic from '../components/homeCarusalEN'
+import SlidePic from '../../components/homeCarusalEN'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import 'mdbreact/dist/css/mdb.css'
-import NewsCard from "../components/cardEN"
+import NewsCard from "../../components/cardEN"
 
 
 const IndexPage = () => {
@@ -98,29 +98,29 @@ const indexEn = useStaticQuery(graphql`
 
 
                   <div className={homeStyle.colMd4}>
-                    <h4 className={homeStyle.secTitle}>{edge.node.title}</h4>
-                    <p>{documentToReactComponents(edge.node.details.json)}</p>
+                    <h4 className={homeStyle.titleSec2}>{edge.node.title}</h4>
+                    <p className={homeStyle.textStyling}>{documentToReactComponents(edge.node.details.json)}</p>
                   </div>
               )
         })}
         </div>
 
-      <div class="col-xs-14 col-sm-6 col-md-9 col-lg-4 col-xl-4" >
+      <div class="col-xs-14 col-sm-12 col-md-9 col-lg-4 col-xl-4" >
           {indexEn.wasMachenWir.edges.map((edge)=>{
             return(
                     <div className={homeStyle.colMd4}>
-                      <h4 className={homeStyle.secTitle}>{edge.node.title}</h4>
-                      <p>{documentToReactComponents(edge.node.details.json)}</p>
+                      <h4 className={homeStyle.titleSec2}>{edge.node.title}</h4>
+                      <p className={homeStyle.textStyling}>{documentToReactComponents(edge.node.details.json)}</p>
                     </div>
                 )
           })}
           </div>
-        <div class="col-xs-14 col-sm-6 col-md-9 col-lg-4 col-xl-4" >
+        <div class="col-xs-14 col-sm-12 col-md-9 col-lg-4 col-xl-4" >
             {indexEn.unserLeistung.edges.map((edge)=>{
               return(
                       <div className={homeStyle.colMd4}>
-                        <h4 className={homeStyle.secTitle}>{edge.node.title}</h4>
-                        <p>{documentToReactComponents(edge.node.details.json)}</p>
+                        <h4 className={homeStyle.titleSec2}>{edge.node.title}</h4>
+                        <p className={homeStyle.textStyling}>{documentToReactComponents(edge.node.details.json)}</p>
                       </div>
                   )
             })}
@@ -130,7 +130,7 @@ const indexEn = useStaticQuery(graphql`
       </div>
 
     <div className={homeStyle.feedbacken}>
-      <a href="/termineEN">Coming Up Colloquia</a>
+      <a href="/en/aktuelles/CoronaCrisis">Coming Up Colloquia</a>
     </div>
     <div className={homeStyle.feedback1en}>
       <a href="#news">Latest News</a>

@@ -1,5 +1,6 @@
 const path = require('path')
-const webpack = require('webpack');
+const webpack = require('webpack')
+const { BLOCKS, INLINES } = require('@contentful/rich-text-types')
 
 
 exports.onCreateWebpackConfig = ({
@@ -23,6 +24,10 @@ exports.onCreateWebpackConfig = ({
               },
               {
                 test: require.resolve('jquery'),
+                use: loaders.null(),
+              },
+              {
+                test: /moduleName/,
                 use: loaders.null(),
               },
             ],
@@ -54,68 +59,97 @@ exports.createPages = async ({ graphql, actions}) => {
     const { createPage } = actions
     const res = await graphql(`
       query {
-        article:  allContentfulPresseArticle{
-                      edges {
-                        node {
-                          slug
-                        }
-                      }
-                    }
-
-          project:  allContentfulAktuelleProjekte{
-              edges{
-                node{
-                  slug
-                }
+        partnerTemp: allContentfulVollMitgliedsfirmen(filter:{node_locale: {eq: "de"}}){
+          edges{
+            node{
+              mitglieder
+              node_locale
+              statement{
+                json
               }
             }
-
-        finishedProj: allContentfulAbgeschlosseneProjekte{
-                edges{
-                  node{
-                    slug
-                  }
-                }
-              }
+          }
         }
+        partnerTempEN: allContentfulVollMitgliedsfirmen(filter:{node_locale: {eq: "en"}}){
+          edges{
+            node{
+              mitglieder
+              node_locale
+              statement{
+                json
+              }
+            }
+          }
+        }
+        newsTempl: allContentfulAktuelles(filter:{node_locale: {eq: "de"}}){
+          edges{
+            node{
+              slug
+              node_locale
+              title
+            }
+          }
+        }
+        newsTemplEN: allContentfulAktuelles(filter:{node_locale: {eq: "en"}}){
+          edges{
+            node{
+              slug
+              node_locale
+              title
+            }
+          }
+        }
+      }
 
       `)
 
-      const articleTemplate = path.resolve('./src/templates/article.js')
-      const projectTemplate = path.resolve('./src/templates/projekt.js')
-      const abgProjectTemplate = path.resolve('./src/templates/abgProject.js')
+      const partnerTemplate = path.resolve('./src/templates/partnerDetails.js')
+      const partnerTemplateEN = path.resolve('./src/templates/partnerDetailsEN.js')
+      const newsTemplate = path.resolve('./src/templates/newsTemp.js')
+      const newsTemplateEN = path.resolve('./src/templates/newsTempEN.js')
 
       if(res.errors){
         reporter.panicOnBuild(`Error while running GraphQL query.`)
         return
       }
 
-      res.data.article.edges.forEach((edge) => {
-        createPage({
-          path: `/newsroom/${edge.node.slug}`,
-          component: articleTemplate,
-          context: {
-            slug:  edge.node.slug
-          }
-        })
-      })
 
-      res.data.project.edges.forEach((edge) => {
-        createPage ({
-          component: projectTemplate,
-          path: `/projekte/${edge.node.slug}`,
-          context: {
-            slug: edge.node.slug
+      res.data.partnerTemp.edges.forEach((edge) => {
+        createPage({
+          component: partnerTemplate,
+              path: `/partner/${edge.node.mitglieder}`,
+              context:{
+                mitglieder: edge.node.mitglieder,
           },
         })
       })
 
-      res.data.finishedProj.edges.forEach((edge) =>{
-        createPage ({
-          component: abgProjectTemplate,
-          path: `/AbgeschlosseneProjekte/${edge.node.slug}`,
-          context: {
-            slug: edge.node.slug
+      res.data.partnerTempEN.edges.forEach((edge) => {
+        createPage({
+          component: partnerTemplateEN,
+              path: `/en/partner/${edge.node.mitglieder}`,
+              context:{
+                mitglieder: edge.node.mitglieder,
+          },
+        })
+      })
+
+      res.data.newsTempl.edges.forEach((edge) => {
+        createPage({
+          component: newsTemplate,
+              path: `/aktuelles/${edge.node.slug}`,
+              context:{
+                slug: edge.node.slug,
+          },
+        })
+      })
+
+      res.data.newsTemplEN.edges.forEach((edge) => {
+        createPage({
+          component: newsTemplateEN,
+              path: `/en/aktuelles/${edge.node.slug}`,
+              context:{
+                slug: edge.node.slug,
           },
         })
       })

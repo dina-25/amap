@@ -1,10 +1,11 @@
 import React from "react"
 import { graphql, useStaticQuery } from 'gatsby'
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../../components/layout"
+import SEO from "../../components/seo"
 import {documentToReactComponents} from '@contentful/rich-text-react-renderer'
-import listStyles from '../styles/project.module.scss'
-import itemStyles from '../styles/article.module.scss'
+import listStyles from '../../styles/project.module.scss'
+import itemStyles from '../../styles/article.module.scss'
+import homeStyle from '../../styles/home.module.scss'
 
 
 const ProjectsPage = () => {
@@ -13,7 +14,7 @@ const ProjectsPage = () => {
     query {
       allContentfulAktuelleProjekte(
         sort: {
-          fields: title,
+          fields: slug,
           order: ASC
         }, filter: { node_locale: {eq: "en"}}
          ){
@@ -46,6 +47,7 @@ return (
   <Layout>
     <SEO title="Current Projects" />
     <div className={listStyles.wrapper}>
+      <h3 className={homeStyle.titleStyling}>Current Projects</h3>
       <ol className={itemStyles.articles}>
         {projQueryEn.allContentfulAktuelleProjekte.edges.map((edge) => {
           return(

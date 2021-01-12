@@ -1,10 +1,11 @@
 import React from 'react'
-import SEO from "../components/seo"
+import SEO from "../../components/seo"
 import {graphql, useStaticQuery} from 'gatsby'
-import Layout from '../components/layout'
+import Layout from '../../components/layout'
 import {documentToReactComponents} from '@contentful/rich-text-react-renderer'
-import ideeStyles from '../styles/idee.module.scss'
-import partnerStyles from '../styles/partner.module.scss'
+import ideeStyles from '../../styles/idee.module.scss'
+import partnerStyles from '../../styles/partner.module.scss'
+import homeStyle from '../../styles/home.module.scss'
 
 const GefoProjekte = () => {
 
@@ -39,6 +40,7 @@ const GefoProjekte = () => {
     <Layout>
       <SEO title="Funded Projects with participation of AMAP consortia" />
       <div className={partnerStyles.wrapper}>
+        <h3 className={homeStyle.titleStyling}>Funded Projects with participation of AMAP consortia</h3>
         <ol className={partnerStyles.mitgliedern}>
             {initiativeEn.allContentfulGefohrderteProjekte.edges.map((edge) =>{
               return(
@@ -47,10 +49,10 @@ const GefoProjekte = () => {
                     <img className={ideeStyles.posterStyle} alt="" src={edge.node.poster.fluid.src}/></a>
                       <div className={partnerStyles.clearfix}>
                       <h4 className={ideeStyles.titleStyle}>{edge.node.title}</h4>
-                      <p className={partnerStyles.addressStyling}>{documentToReactComponents(edge.node.details.json)}</p>
-
+                      <p className={ideeStyles.blockStyling}>{documentToReactComponents(edge.node.details.json)}</p>
+                      <hr className={ideeStyles.underline}/>
                     </div>
-                    <hr className={ideeStyles.underline}/>
+
                   </li>
                )
              })}

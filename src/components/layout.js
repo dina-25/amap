@@ -1,13 +1,14 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import Header from './DesktopNavbarEn'
-import Footer from './footer'
+import Footer from './footerEN'
 import PropTypes from "prop-types"
 import '../styles/index.scss'
 import LayoutStyles from '../styles/layout.module.scss'
 import headerStyles from '../styles/header.module.scss'
-
-
+import ScrollUp from './scrollButton'
+import Christmas from './christmasLights'
+import christmas from '../styles/christmas.module.scss'
 
 const Layout = ({ children, intl }) => {
    const data = useStaticQuery(graphql`
@@ -26,7 +27,9 @@ const Layout = ({ children, intl }) => {
       <div className={LayoutStyles.content}>
         <img className={headerStyles.headerPic} src={data.contentfulAsset.file.url} alt={data.title} />
         <Header  />
-        <main>{children}</main>
+        <main>{children}
+          <ScrollUp/>
+        </main>
       </div>
       <Footer />
     </div>

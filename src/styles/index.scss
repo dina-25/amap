@@ -2,11 +2,14 @@ html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+
 }
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  word-break: normal;
+  font-size: calc(0.75em + 1vmin);
 }
 article,
 aside,
@@ -270,6 +273,7 @@ h3 {
   text-rendering: optimizeLegibility;
   font-size: 1.38316rem;
   line-height: 1.1;
+  hyphens: manual;
 }
 h4 {
   margin-left: 0;
@@ -615,8 +619,15 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
-@media only screen and (max-width: 480px) {
+
+@media screen and (min-width: 50em) {
   html {
-    font-size: 100%;
+    font-size: 2vw;
+  }
+}
+
+@media screen and (min-width: 75em) {
+  html {
+    font-size: 1.5em;
   }
 }

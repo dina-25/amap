@@ -12,11 +12,12 @@ const ContactPage = () => {
     <div>
       <Layout>
       <SEO title="Kontakt" />
-  <div className={mapStyling.bodyWrap}>
-  <div className={mapStyling.leftColumn}>
-    <p className={mapStyling.headers}>Kontakt</p>
-    <hr className={mapStyling.underline}/>
-    <table>
+      <div className={mapStyling.bodyWrap}>
+        <div class="container-fluid">
+          <div class="row justify-content-left ">
+            <div class="col-xs-14 col-sm-12 col-md-9 col-lg-6 col-xl-6 mr-auto" >
+    <h3 className={mapStyling.headers}>Kontakt</h3>
+    <table className={mapStyling.tableStyle}>
       <tbody className={mapStyling.tableContact}>
         <tr>
           <td>Adresse</td>
@@ -39,38 +40,43 @@ const ContactPage = () => {
         </tr>
       </tbody>
     </table>
-    <p className={mapStyling.headers}>Bewerbung</p>
-    <hr className={mapStyling.underline}/>
-    <p className={mapStyling.contactTitles}>als Mitarbeiter in einem Forschungs-/Entwicklungsprojekt</p>
+    </div>
+    <div class="col-xs-14 col-sm-12 col-md-9 col-lg-6 col-xl-5" >
+      <div className={mapStyling.leafletMapStyle}>
+  <h3 className={mapStyling.headers}>So finden Sie AMAP</h3>
+  <p className={mapStyling.contactTitles}>Anfahrt</p>
+  <Map />
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="row justify-content-left ">
+      <div class="col-xs-14 col-sm-12 col-md-9 col-lg-6 col-xl-6 " >
+    <h3 className={mapStyling.headers}>Bewerbung</h3>
+    <p className={mapStyling.contactTitles}>als Mitarbeiter in einem Forschungs-/ Entwicklungsprojekt</p>
     <hr/>
     <p className={mapStyling.text}>Ihre Bewerbung schicken Sie bitte</p>
     <ol className={mapStyling.oListStyling}>
       <li><FontAwesomeIcon icon={faArrowAltCircleRight} className={mapStyling.arrow}/> an die beteiligten Industriefirmen und/oder</li>
       <li><FontAwesomeIcon icon={faArrowAltCircleRight} className={mapStyling.arrow}/> an die beteiligten RWTH-Institute</li><br/>
     </ol>
-    <p className={mapStyling.headers}>Mitgliedschaft</p>
-    <hr className={mapStyling.underline}/>
+    </div>
+    </div>
+
+    <div class="row justify-content-start">
+      <div class="col-xs-12 col-sm-12 col-md-9 col-lg-5 col-xl-6" >
+    <h3 className={mapStyling.headers}>Mitgliedschaft</h3>
     <p className={mapStyling.contactTitles}>als Partner im Forschungscluster AMAP</p>
     <hr/>
-    <p>Ihre Anfragen richten Sie bitte</p>
+    <p className={mapStyling.text}>Ihre Anfragen richten Sie bitte</p>
     <ol className={mapStyling.oListStyling}>
       <li><FontAwesomeIcon icon={faArrowAltCircleRight} className={mapStyling.arrow}/> an die Geschäftsführung der AMAP GmbH</li>
     </ol>
   </div>
-    <div className={mapStyling.rightColumn}>
-      <div className={mapStyling.leafletMapStyle}>
-        <p className={mapStyling.headers}>So finden Sie AMAP</p>
-        <hr className={mapStyling.underline}/>
-        <p className={mapStyling.contactTitles}>Anfahrt</p>
-        <Map />
-      </div>
-    </div>
-
-    <div className={mapStyling.contactForm}>
-
-    </div>
-
   </div>
+</div>
+
       </Layout>
     </div>
   )

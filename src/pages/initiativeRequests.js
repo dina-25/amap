@@ -5,6 +5,7 @@ import Layout from '../components/layoutDE'
 import {documentToReactComponents} from '@contentful/rich-text-react-renderer'
 import ideeStyles from '../styles/idee.module.scss'
 import partnerStyles from '../styles/partner.module.scss'
+import homeStyle from '../styles/home.module.scss'
 
 const GefoProjekte = () => {
 
@@ -40,6 +41,7 @@ const partnerQuery = useStaticQuery(graphql`
     <Layout>
       <SEO title="Gefördete Projekte mit Teilnahme con AMAP Konsortien" />
       <div className={partnerStyles.wrapper}>
+        <h3 className={homeStyle.titleStyling}>Gefördete Projekte mit Teilnahme con AMAP Konsortien</h3>
         <ol className={partnerStyles.mitgliedern}>
             {partnerQuery.allContentfulGefohrderteProjekte.edges.map((edge) =>{
               return(
@@ -48,9 +50,10 @@ const partnerQuery = useStaticQuery(graphql`
                     <img className={ideeStyles.posterStyle} alt="" src={edge.node.poster.fluid.src}/></a>
                       <div className={partnerStyles.clearfix}>
                       <h4 className={ideeStyles.titleStyle}>{edge.node.title}</h4>
-                      <p className={partnerStyles.addressStyling}>{documentToReactComponents(edge.node.details.json)}</p>
+                      <p className={ideeStyles.blockStyling}>{documentToReactComponents(edge.node.details.json)}</p>
+                      <hr className={ideeStyles.underline}/>
                     </div>
-                    <hr className={ideeStyles.underline}/>
+
                   </li>
                )
              })}

@@ -1,12 +1,15 @@
 import React from 'react'
 import SEO from "../components/seo"
-import {graphql, useStaticQuery} from 'gatsby'
+import {Link, graphql, useStaticQuery} from 'gatsby'
 import Layout from '../components/layoutDE'
 import {documentToReactComponents} from '@contentful/rich-text-react-renderer'
 import partnerStyles from '../styles/partner.module.scss'
 import homeStyles from '../styles/home.module.scss'
+import '../styles/styles.css'
+import {MDBIcon } from 'mdbreact'
 
 const Partners = () => {
+
 
 const partQuery = useStaticQuery(graphql`
   query {
@@ -14,6 +17,7 @@ const partQuery = useStaticQuery(graphql`
       {
     edges {
       node {
+        slug
         mitglieder
         thumbnail {
           fluid{
@@ -29,6 +33,9 @@ const partQuery = useStaticQuery(graphql`
           json
         }
         link
+        statement {
+          json
+        }
       }
     }
   }
@@ -38,7 +45,7 @@ const partQuery = useStaticQuery(graphql`
      src
    }
   }
-  image2: contentfulAsset(title: {eq: "Gründungsinstitute"}) {
+  image2: contentfulAsset(title: {eq: "grundungsinstituteGraph"}) {
     fluid(quality: 10) {
     base64
     src
@@ -48,7 +55,9 @@ const partQuery = useStaticQuery(graphql`
     edges {
       node {
         firmenname
-        address
+        adresse{
+          json
+        }
         link
         poster1{
           file{
@@ -63,11 +72,13 @@ const partQuery = useStaticQuery(graphql`
       }
     }
   }
-  allContentfulMitgliedsinstituteDerRwthAachenUniversity(filter: {node_locale: {eq: "de"}}, sort: {fields: institutsname}) {
+  allContentfulMitgliedsinstituteDerRwthAachenUniversity(filter: {node_locale: {eq: "de"}}, sort: {fields: slug}) {
    edges {
      node {
        link
-       address
+       adresse{
+         json
+       }
        institutsname
        poster {
          file {
@@ -96,8 +107,8 @@ const partQuery = useStaticQuery(graphql`
         <ol className={partnerStyles.mitgliedern}>
 
               {partQuery.allContentfulVollMitgliedsfirmen.edges.map((edge) =>{
+                  var path = `https://${edge.node.link}`
                 return(
-
                     <li className={partnerStyles.mitglied}>
                       <a href={edge.node.image.file.url}>
                         <img className={partnerStyles.postImgStyle} alt="" src={edge.node.thumbnail.fluid.src}/>
@@ -105,7 +116,13 @@ const partQuery = useStaticQuery(graphql`
                         <div className={partnerStyles.clearfix}>
                         <h4>{edge.node.mitglieder}</h4>
                         <p className={partnerStyles.addressStyling}>{documentToReactComponents(edge.node.adress.json)}</p>
-                        <a href={edge.node.link}>{edge.node.link}</a>
+                        <a href={path}>{edge.node.link}</a>
+                        <Link to={edge.node.mitglieder} className='black-text d-flex justify-content-end'>
+                        <h5>
+                          Weiter lesen
+                          <MDBIcon icon='angle-double-right' className='ml-2' />
+                        </h5>
+                        </Link>
                       </div>
                       <hr className={partnerStyles.underline}/>
                     </li>
@@ -118,6 +135,7 @@ const partQuery = useStaticQuery(graphql`
         <ol className={partnerStyles.mitgliedern}>
 
               {partQuery.allContentfulAssoziierteMitgliedsfirmen.edges.map((edge) =>{
+                  var path = `https://${edge.node.link}`
                 return(
                     <li className={partnerStyles.mitglied}>
                     <a href={edge.node.poster1.file.url}>
@@ -125,7 +143,8 @@ const partQuery = useStaticQuery(graphql`
                       </a>
                         <div className={partnerStyles.clearfix}>
                         <h4>{edge.node.firmenname}</h4>
-                        <p className={partnerStyles.addressStyling}>{edge.node.address}</p>
+                        <p className={partnerStyles.addressStyling}>{documentToReactComponents(edge.node.adresse.json)}</p>
+                        <a href={path}>{edge.node.link}</a>
                       </div>
                       <hr className={partnerStyles.underline}/>
                     </li>
@@ -138,14 +157,15 @@ const partQuery = useStaticQuery(graphql`
         <ol className={partnerStyles.mitgliedern}>
 
               {partQuery.allContentfulMitgliedsinstituteDerRwthAachenUniversity.edges.map((edge) =>{
+                  var path = `https://${edge.node.link}`
                 return(
                     <li className={partnerStyles.mitglied}>
                     <a href={edge.node.poster.file.url}>
                       <img className={partnerStyles.postImgStyle} alt="" src={edge.node.logo.fluid.src}/></a>
                         <div className={partnerStyles.clearfix}>
                         <h4>{edge.node.institutsname}</h4>
-                        <p className={partnerStyles.addressStyling}>{edge.node.address}</p>
-                        <a href={edge.node.link}>{edge.node.link}</a>
+                        <p className={partnerStyles.addressStyling}>{documentToReactComponents(edge.node.adresse.json)}</p>
+                        <a href={path}>{edge.node.link}</a>
                       </div>
                       <hr className={partnerStyles.underline}/>
                     </li>
@@ -154,7 +174,13 @@ const partQuery = useStaticQuery(graphql`
         </ol>
 
         <h3 className={homeStyles.titleStyling}>Gründungsinstitute - Stand 2012</h3>
-        <img alt="" className={partnerStyles.partnerImage} src={partQuery.image2.fluid.src}/>
+        <img id="myImg" alt="Gruendungs Institute" className={partnerStyles.partnerImage} src={partQuery.image2.fluid.src} height="700"/>
+
+        <div id="myModal" class="modal">
+          <span class="close">&times;</span>
+            <img class="modal-content" id="img01" alt=""/>
+              <div id="caption"></div>
+        </div>
 
       </div>
     </Layout>

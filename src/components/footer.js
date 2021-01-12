@@ -14,6 +14,7 @@ const Footer = () => {
     `)
 
   return(
+//  <div class="position-sticky">
     <footer className={footerStyles.footer}>
     <div className={footerStyles.footerText}>
       <p>&copy; {data.site.siteMetadata.author} <br />
@@ -36,6 +37,7 @@ const Footer = () => {
       </ul>
      </div>
     </footer>
+//  </div>
   )
 }
 

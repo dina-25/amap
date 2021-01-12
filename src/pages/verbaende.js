@@ -9,7 +9,7 @@ const UberUns = () => {
 
   const verband = useStaticQuery(graphql`
     query {
-  allContentfulMitgliedschaftInVerbanden(filter: {node_locale: {eq: "de"}}) {
+  allContentfulMitgliedschaftInVerbanden(filter: {node_locale: {eq: "de"}}, sort: {fields: verband}) {
     edges {
       node {
         verband

@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
 import articleStyles from '../styles/article.module.scss'
 import newsStyles from '../styles/newsroom.module.scss'
+import homeStyle from '../styles/home.module.scss'
 import {documentToReactComponents} from '@contentful/rich-text-react-renderer'
 
 
@@ -32,8 +33,10 @@ const Termine = () => {
   return(
 
     <Layout>
-      <SEO title="Termine" /><div className={newsStyles.wrapper}>
-      <ol className={articleStyles.articles}>
+      <SEO title="Termine" />
+      <div className={newsStyles.wrapper}>
+        <h3 className={homeStyle.titleStyling}>Zukünftige Kolloquien</h3>
+     <ol className={articleStyles.articles}>
         {termine.allContentfulColloquiumTermine.edges.map((edge) => {
           return (
             <li className={articleStyles.article}>

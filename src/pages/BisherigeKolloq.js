@@ -5,13 +5,14 @@ import Layout from '../components/layoutDE'
 import {documentToReactComponents} from '@contentful/rich-text-react-renderer'
 import articleStyles from '../styles/article.module.scss'
 import newsStyles from '../styles/newsroom.module.scss'
+import homeStyle from '../styles/home.module.scss'
 import {MDBIcon } from 'mdbreact';
 
 const BisherigeK = () => {
 
   const colloq = useStaticQuery(graphql`
     query KolloqQuery{
-      allContentfulBisherigeKolloquien201415(sort: {order: DESC, fields: titel}, filter: {hasLink: {eq: true}, node_locale: {eq: "de"}}) {
+      allContentfulBisherigeKolloquien201415(sort: {order: DESC, fields: slug}, filter: {hasLink: {eq: true}, node_locale: {eq: "de"}}) {
         edges{
           node{
             content {
@@ -32,7 +33,7 @@ const BisherigeK = () => {
             }
           }
         }
-        allContentfulBisherigeKolloquien201617(sort: {order: DESC, fields: titel}, filter: {hasLink: {eq: true}, node_locale: {eq: "de"}}) {
+        allContentfulBisherigeKolloquien201617(sort: {order: DESC, fields: slug}, filter: {hasLink: {eq: true}, node_locale: {eq: "de"}}) {
             edges {
               node {
                 titel
@@ -53,7 +54,7 @@ const BisherigeK = () => {
               }
             }
           }
-          allContentfulBisherigeKolloquien201819(sort: {order: DESC, fields: titel}, filter: {hasLink: {eq: true}, node_locale: {eq: "de"}}) {
+          allContentfulBisherigeKolloquien201819(sort: {order: DESC, fields: slug}, filter: {hasLink: {eq: true}, node_locale: {eq: "de"}}) {
               edges {
                 node {
                   image {
@@ -74,7 +75,7 @@ const BisherigeK = () => {
                 }
               }
             }
-            allContentfulBisherigeKolloquien202021(sort: {order: DESC, fields: titel}, filter: {node_locale: {eq: "de"}, hasLink: {eq: true}}) {
+            allContentfulBisherigeKolloquien202021(sort: {order: DESC, fields: slug}, filter: {node_locale: {eq: "de"}, hasLink: {eq: true}}) {
               edges {
                 node {
                   titel
@@ -103,6 +104,7 @@ const BisherigeK = () => {
     <Layout>
       <SEO title="Bisherige Kolloquien" />
       <div className={newsStyles.wrapper}>
+      <h3 className={homeStyle.titleStyling}>Bisherige Kolloquien</h3>
       <ol className={articleStyles.articles}>
         {colloq.allContentfulBisherigeKolloquien202021.edges.map((edge) => {
           return (

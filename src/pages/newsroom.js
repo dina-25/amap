@@ -4,6 +4,7 @@ import Layout from '../components/layoutDE'
 import SEO from '../components/seo'
 import articleStyles from '../styles/article.module.scss'
 import newsStyles from '../styles/newsroom.module.scss'
+import homeStyles from '../styles/home.module.scss'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import {MDBIcon } from 'mdbreact';
 
@@ -48,6 +49,7 @@ const Newsroom = () => {
       <Layout>
       <SEO title="Newsroom" />
       <div className={newsStyles.wrapper}>
+        <h3 className={homeStyles.titleStyling}>Presse Artikel</h3>
       <ol className={articleStyles.articles}>
         {pressQuery.allContentfulPresseArticle.edges.map((edge) => {
           return (

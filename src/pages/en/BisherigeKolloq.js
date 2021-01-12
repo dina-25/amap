@@ -1,10 +1,11 @@
 import React from 'react'
-import SEO from "../components/seo"
+import SEO from "../../components/seo"
 import {graphql, useStaticQuery} from 'gatsby'
-import Layout from '../components/layoutDE'
+import Layout from '../../components/layout'
 import {documentToReactComponents} from '@contentful/rich-text-react-renderer'
-import articleStyles from '../styles/article.module.scss'
-import newsStyles from '../styles/newsroom.module.scss'
+import articleStyles from '../../styles/article.module.scss'
+import newsStyles from '../../styles/newsroom.module.scss'
+import homeStyle from '../../styles/home.module.scss'
 import {MDBIcon } from 'mdbreact';
 
 
@@ -12,7 +13,7 @@ const BisherigeK = () => {
 
   const data = useStaticQuery(graphql`
     query KolloqENQuery{
-      allContentfulBisherigeKolloquien201415(sort: {order: DESC, fields: titel}, filter: {hasLink: {eq: true}, node_locale: {eq: "en"}}) {
+      allContentfulBisherigeKolloquien201415(sort: {order: DESC, fields: slug}, filter: {hasLink: {eq: true}, node_locale: {eq: "en"}}) {
         edges{
           node{
             image {
@@ -33,7 +34,7 @@ const BisherigeK = () => {
             }
           }
         }
-        allContentfulBisherigeKolloquien201617(sort: {order: DESC, fields: titel}, filter: {hasLink: {eq: true}, node_locale: {eq: "en"}}) {
+        allContentfulBisherigeKolloquien201617(sort: {order: DESC, fields: slug}, filter: {hasLink: {eq: true}, node_locale: {eq: "en"}}) {
             edges {
               node {
                 titel
@@ -54,7 +55,7 @@ const BisherigeK = () => {
               }
             }
           }
-          allContentfulBisherigeKolloquien201819(sort: {order: DESC, fields: titel}, filter: {hasLink: {eq: true}, node_locale: {eq: "en"}}) {
+          allContentfulBisherigeKolloquien201819(sort: {order: DESC, fields: slug}, filter: {hasLink: {eq: true}, node_locale: {eq: "en"}}) {
               edges {
                 node {
                   presentation {
@@ -75,7 +76,7 @@ const BisherigeK = () => {
                 }
               }
             }
-            allContentfulBisherigeKolloquien202021(sort: {order: DESC, fields: titel}, filter: {node_locale: {eq: "en"}, hasLink: {eq: true}}) {
+            allContentfulBisherigeKolloquien202021(sort: {order: DESC, fields: slug}, filter: {node_locale: {eq: "en"}, hasLink: {eq: true}}) {
               edges {
                 node {
                   titel
@@ -99,11 +100,17 @@ const BisherigeK = () => {
       }
     `)
 
+
+  /*  if(!data.allContentfulBisherigeKolloquien201415.edges.node.present.file.url){
+      return <p>Presentation follows soon!</p>
+    }*/
+
   return (
     <div>
     <Layout>
       <SEO title="Bisherige Kolloquien" />
       <div className={newsStyles.wrapper}>
+        <h3 className={homeStyle.titleStyling}>Previous Colloquia</h3>
       <ol className={articleStyles.articles}>
         {data.allContentfulBisherigeKolloquien202021.edges.map((edge) => {
           return (

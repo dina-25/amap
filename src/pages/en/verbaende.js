@@ -1,16 +1,16 @@
 import React from 'react'
-import SEO from "../components/seo"
+import SEO from "../../components/seo"
 import { graphql, useStaticQuery} from 'gatsby'
-import Layout from '../components/layout'
-import partnerStyles from '../styles/partner.module.scss'
-import homeStyle from '../styles/home.module.scss'
+import Layout from '../../components/layout'
+import partnerStyles from '../../styles/partner.module.scss'
+import homeStyle from '../../styles/home.module.scss'
 
 
 const UberUns = () => {
 
 const verbandEn = useStaticQuery(graphql`
     query {
-  allContentfulMitgliedschaftInVerbanden(filter:  {node_locale: {eq: "en"}}) {
+  allContentfulMitgliedschaftInVerbanden(filter:  {node_locale: {eq: "en"}}, sort: {fields: verband}) {
     edges {
       node {
         verband

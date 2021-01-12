@@ -12,8 +12,6 @@
 
 .post-img-style{
   float: left;
-  align-items: baseline;
-  margin-left: 5rem;
   margin-right: 1.5rem;
   max-width: 20vh;
   max-height: 20vh;
@@ -22,7 +20,11 @@
 }
 
 .clearfix{
-  overflow:auto;
+  overflow:hidden;
+}
+
+image-style{
+  margin: 0 auto;
 }
 
 .clearfix::after{
@@ -34,13 +36,14 @@
 .mitgliedern {
     list-style-type: none;
     margin: 0;
+    margin-bottom: auto;
 }
 
 .mitglied {
     text-align:left;
     font-family: arial;
+    font-size: 2vh;
     overflow: hidden;
-    padding: 0.5em;
     margin-left: 1rem;
 }
 
@@ -56,24 +59,22 @@
 
 .address-styling{
   font-family: arial;
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  padding-left: 1em;
-  font-size: 1.9vh;
+  display:table;
+  text-align:left;
+  font-size: 2vh;
   color: #333;
+  overflow: hidden;
 }
 
 .header-title{
   margin-bottom: 0;
   color: #0072bc;
   font-family: arial;
-  font-size: 2vw;
+  font-size: 2vh;
 }
 
 .image-styling{
-  margin-left: 5em;
-
+  margin-left: 0 auto;
 }
 
 .partner-image{

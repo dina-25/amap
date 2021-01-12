@@ -1,11 +1,11 @@
 import React from 'react'
-import SEO from "../components/seo"
-import Layout from '../components/layout'
-import partnerStyles from '../styles/partner.module.scss'
+import SEO from "../../components/seo"
+import Layout from '../../components/layout'
+import partnerStyles from '../../styles/partner.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
-import mapStyling from '../styles/map.module.scss'
-import homeStyle from '../styles/home.module.scss'
+import mapStyling from '../../styles/map.module.scss'
+import homeStyle from '../../styles/home.module.scss'
 
 
 
@@ -25,6 +25,7 @@ Please contact us via our e-mail address: <a href="mailto:info@amap.de">info[at]
         <p className={partnerStyles.addressStyling}><FontAwesomeIcon icon={faArrowAltCircleRight} className={mapStyling.arrow}/> P25 - Optimization of aluminium sheet with special emphasis on tribology and visual appearance</p>
         <p className={partnerStyles.addressStyling}><FontAwesomeIcon icon={faArrowAltCircleRight} className={mapStyling.arrow}/> P26 - Influence of Cold Flakes on the Tensile and Fatigue Strength of Aluminum High Pressure Die Castings</p>
         <p className={partnerStyles.addressStyling}><FontAwesomeIcon icon={faArrowAltCircleRight} className={mapStyling.arrow}/> P27 - Heat-treatment-free Al alloys</p>
+        <p className={partnerStyles.addressStyling}><FontAwesomeIcon icon={faArrowAltCircleRight} className={mapStyling.arrow}/> P28 - Iron Removal from Aluminum and its Alloys</p>
         <p className={partnerStyles.addressStyling}><FontAwesomeIcon icon={faArrowAltCircleRight} className={mapStyling.arrow}/> P(X) - Standard samples of melt cleanliness</p>
       </div>
     </Layout>

@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 import {documentToReactComponents} from '@contentful/rich-text-react-renderer'
 import listStyles from '../styles/project.module.scss'
 import itemStyles from '../styles/article.module.scss'
+import homeStyle from '../styles/home.module.scss'
 
 
 const ProjectsPage = () => {
@@ -44,8 +45,9 @@ const ProjectsPage = () => {
 
 return (
   <Layout>
-    <SEO title="Projekte" />
+    <SEO title="Laufende Projekte" />
     <div className={listStyles.wrapper}>
+    <h3 className={homeStyle.titleStyling}>Laufende Projekte</h3>
       <ol className={itemStyles.articles}>
         {projQuery.allContentfulAktuelleProjekte.edges.map((edge) => {
           return(

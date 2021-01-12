@@ -1,19 +1,22 @@
 import React from 'react'
-import SEO from "../components/seo"
+import SEO from "../../components/seo"
 import {Link, graphql, useStaticQuery} from 'gatsby'
-import Layout from '../components/layout'
+import Layout from '../../components/layout'
 import {documentToReactComponents} from '@contentful/rich-text-react-renderer'
-import partnerStyles from '../styles/partner.module.scss'
-import homeStyles from '../styles/home.module.scss'
+import partnerStyles from '../../styles/partner.module.scss'
+import homeStyles from '../../styles/home.module.scss'
+import {MDBIcon } from 'mdbreact'
+
 
 const Partners = () => {
 
   const partnerQueryEn = useStaticQuery(graphql`
     query {
-      allContentfulVollMitgliedsfirmen(filter: {node_locale: {eq: "en"}})
+      allContentfulVollMitgliedsfirmen(filter: {node_locale: {eq: "en"}},sort: {fields: mitglieder})
         {
       edges {
         node {
+          slug
           mitglieder
           thumbnail {
             fluid{
@@ -29,26 +32,31 @@ const Partners = () => {
             json
           }
           link
+          statement{
+            json
+          }
         }
       }
     }
-    image1: contentfulAsset(title: {eq: "partnerGraphicFull"}) {
+    image1: contentfulAsset(title: {eq: "partnerGraphicFullEN"}) {
      fluid(quality: 10) {
        base64
        src
      }
    }
-    image2: contentfulAsset(title: {eq: "Gründungsinstitute"}) {
+    image2: contentfulAsset(title: {eq: "grundungsinstituteGraph"}) {
       fluid(quality: 10) {
       base64
       src
     }
   }
-   allContentfulAssoziierteMitgliedsfirmen(filter: {node_locale: {eq: "en"}}) {
+   allContentfulAssoziierteMitgliedsfirmen(filter: {node_locale: {eq: "en"}}, sort: {fields: firmenname}) {
       edges {
         node {
           firmenname
-          address
+          adresse{
+            json
+          }
           link
           poster1{
             file{
@@ -63,11 +71,13 @@ const Partners = () => {
         }
       }
     }
-    allContentfulMitgliedsinstituteDerRwthAachenUniversity(filter: {node_locale: {eq: "en"}}) {
+    allContentfulMitgliedsinstituteDerRwthAachenUniversity(filter: {node_locale: {eq: "en"}}, sort: {fields: institutsname}) {
      edges {
        node {
          link
-         address
+         adresse{
+           json
+         }
          institutsname
          poster {
            file {
@@ -103,7 +113,13 @@ const Partners = () => {
                         <div className={partnerStyles.clearfix}>
                         <h4>{edge.node.mitglieder}</h4>
                         <p className={partnerStyles.addressStyling}>{documentToReactComponents(edge.node.adress.json)}</p>
-                        <Link>{edge.node.link}</Link>
+                        <a href={edge.node.link}>{edge.node.link}</a>
+                        <Link to={edge.node.mitglieder} className='black-text d-flex justify-content-end'>
+                          <h5>
+                          more
+                            <MDBIcon icon='angle-double-right' className='ml-2' />
+                          </h5>
+                          </Link>
                       </div>
                       <hr className={partnerStyles.underline}/>
                     </li>
@@ -122,8 +138,8 @@ const Partners = () => {
                       <img className={partnerStyles.postImgStyle} alt="" src={edge.node.logo.fluid.src}/></a>
                         <div className={partnerStyles.clearfix}>
                         <h4>{edge.node.firmenname}</h4>
-                        <p className={partnerStyles.addressStyling}>{edge.node.address}</p>
-                        <Link>{edge.node.link}</Link>
+                      <p className={partnerStyles.addressStyling}>{documentToReactComponents(edge.node.adresse.json)}</p>
+                        <a href={edge.node.link}>{edge.node.link}</a>
                       </div>
                       <hr className={partnerStyles.underline}/>
                     </li>
@@ -142,8 +158,8 @@ const Partners = () => {
                       <img className={partnerStyles.postImgStyle} alt="" src={edge.node.logo.fluid.src}/></a>
                         <div className={partnerStyles.clearfix}>
                         <h4>{edge.node.institutsname}</h4>
-                        <p className={partnerStyles.addressStyling}>{edge.node.address}</p>
-                        <Link>{edge.node.link}</Link>
+                      <p className={partnerStyles.addressStyling}>{documentToReactComponents(edge.node.adresse.json)}</p>
+                        <a href={edge.node.link}>{edge.node.link}</a>
                       </div>
                       <hr className={partnerStyles.underline}/>
                     </li>
@@ -152,7 +168,7 @@ const Partners = () => {
         </ol>
 
         <h3 className={homeStyles.titleStyling}>Founding Institutes - Year 2012</h3>
-        <img alt="" className={partnerStyles.partnerImage} src={partnerQueryEn.image2.fluid.src}/>
+        <img alt="" className={partnerStyles.partnerImage} src={partnerQueryEn.image2.fluid.src} height="700"/>
 
       </div>
     </Layout>

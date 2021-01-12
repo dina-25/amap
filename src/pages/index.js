@@ -88,6 +88,13 @@ const IndexPageDE = () => {
   return (
     <LayoutD>
       <SEO title="Home" />
+      <div className={homeStyle.feedback}>
+  			<a href="/aktuelles/CoronaCrisis">Nächste Kolloquien</a>
+  		</div>
+      <div className={homeStyle.feedback1}>
+  			<a href="#news">Unsere Neuigkeiten</a>
+  		</div>
+
     <div className={homeStyle.bodyWidth}>
 
       <Carousel/>
@@ -99,30 +106,30 @@ const IndexPageDE = () => {
               const document = edge.node.details.json
               return(
                   <div className={homeStyle.colMd4}>
-                    <h4 className={homeStyle.secTitle}>{edge.node.title}</h4>
-                    {documentToReactComponents(document)}
+                    <h4 className={homeStyle.titleSec2}>{edge.node.title}</h4>
+                    <p className={homeStyle.textStyling}>{documentToReactComponents(document)}</p>
                   </div>
               )
         })}
           </div>
-        <div class="col-xs-14 col-sm-6 col-md-9 col-lg-4 col-xl-4" >
+        <div class="col-xs-14 col-sm-12 col-md-9 col-lg-4 col-xl-4" >
           {data.wasMachenWir.edges.map((edge)=>{
               const document = edge.node.details.json
             return(
                     <div className={homeStyle.colMd4}>
-                      <h4 className={homeStyle.secTitle}>{edge.node.title}</h4>
-                      {documentToReactComponents(document)}
+                      <h4 className={homeStyle.titleSec2}>{edge.node.title}</h4>
+                      <p className={homeStyle.textStyling}>{documentToReactComponents(document)}</p>
                     </div>
                 )
           })}
             </div>
-          <div class="col-xs-14 col-sm-6 col-md-9 col-lg-4 col-xl-4" >
+          <div class="col-xs-14 col-sm-12 col-md-9 col-lg-4 col-xl-4" >
             {data.unserLeistung.edges.map((edge)=>{
                 const document = edge.node.details.json
               return(
                       <div className={homeStyle.colMd4}>
-                        <h4 className={homeStyle.secTitle}>{edge.node.title}</h4>
-                        {documentToReactComponents(document)}
+                        <h4 className={homeStyle.titleSec2}>{edge.node.title}</h4>
+                        <p className={homeStyle.textStyling}>{documentToReactComponents(document)}</p>
                       </div>
                   )
             })}
@@ -130,14 +137,6 @@ const IndexPageDE = () => {
         </div>
 
       </div>
-
-    <div className={homeStyle.feedback}>
-			<a href="/termine">Nächste Kolloquien</a>
-		</div>
-    <div className={homeStyle.feedback1}>
-			<a href="#news">Unser Neuigkeiten</a>
-		</div>
-
 
         <h3 className={homeStyle.titleStyling}>Unsere Kompetenzen</h3>
         <div className={homeStyle.wabe}>

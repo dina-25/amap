@@ -22,8 +22,15 @@
   margin-left: 2rem;
 }
 
+.button-styling{
+  background-color: #0072bc;
+  color: white;
+  border-radius: 5px;
+
+}
+
 .image-style{
-  vertical-align: baseline;
+  vertical-align:top;
   margin-left: auto;
   max-width: 130vh;
   max-height: 100vh;
@@ -45,6 +52,7 @@
 
 .articles {
     list-style-type: none;
+    width: 100%;
     margin-bottom: 1em;
 }
 

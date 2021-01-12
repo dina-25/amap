@@ -1,11 +1,12 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../../components/layout"
+import SEO from "../../components/seo"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
-import articleStyles from '../styles/article.module.scss'
-import newsStyles from '../styles/newsroom.module.scss'
+import articleStyles from '../../styles/article.module.scss'
+import homeStyle from '../../styles/home.module.scss'
+import newsStyles from '../../styles/newsroom.module.scss'
 import {documentToReactComponents} from '@contentful/rich-text-react-renderer'
 
 
@@ -32,7 +33,9 @@ const Termine = () => {
   return(
 
     <Layout>
-      <SEO title="Appointments" /><div className={newsStyles.wrapper}>
+      <SEO title="Appointments" />
+      <div className={newsStyles.wrapper}>
+        <h3 className={homeStyle.titleStyling}>Upcoming Appointments</h3>
       <ol className={articleStyles.articles}>
         {data.allContentfulColloquiumTermine.edges.map((edge) => {
           return (

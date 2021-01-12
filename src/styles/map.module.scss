@@ -1,6 +1,7 @@
 .leaflet-map{
   height: 50vh;
   width: 45vh;
+  margin: 0 auto;
 }
 
 
@@ -9,26 +10,35 @@
   width: 80%;
 }
 
-.right-column{
-  float: right;
+/*.right-column{
+  //float: right;
   width: 40%;
   font-family: arial;
+  position: relative;
 }
 .left-column{
-  float: left;
+  //float: left;
   width: 50%;
   font-family: arial;
-}
+  position: relative;
+}*/
 
 .contact-styling {
   display: table;
 }
 
+.table-style{
+  height: 45vh;
+}
+
+.table-contact td{
+  font-family: arial;
+  font-size: 2vh;
+}
 .underline{
   background-color: #0072bc;
   margin-top: 0;
   border-width: thick;
-
 }
 
 .o-list-styling{
@@ -46,21 +56,63 @@
 .text{
   margin-bottom: 2px;
   font-family: arial;
+  font-size: 2vh;
+  -webkit-hyphens: auto;
+   -moz-hyphens: auto;
+        hyphens: auto;
+}
+
+.card-grid{
+  display: block;
 }
 
 .contact-titles{
   font-family: arial;
   font-weight: 600;
-  font-size: .9vw;
-  margin-bottom: 0;
-  margin-top: 0;
+  font-size: 1em;
+  margin: 0 auto;
+  text-align: left;
 }
 
-.headers {
-  color: #0072bc;
+.card-text{
   font-family: arial;
-  font-size: 1.875vw;
-  margin-bottom: 0;
+  -webkit-hyphens: manual;
+   -moz-hyphens: manual;
+        hyphens: manual;
+  line-break: strict;
+  font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+  .card-text {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 100em)and(max-width:110em){
+  .card-text{
+    font-size: 0.6em;
+  }
+}
+@media (min-width:79em )and(max-width:99em){
+  .card-text{
+    font-size: 0.52em;
+  }
+}
+
+@media screen and (width: 80em){
+  .card-text{
+    font-size: 0.4em;
+  }
+}
+
+
+.headers {
+  background-color: #F0F0F0;
+  border-radius: 10px;
+  padding: .6em;
+  margin-top: 1em;
+  font-family: arial;
 }
 
 /*==========================================CONTACT FORM================================================*/

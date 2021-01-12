@@ -2,19 +2,20 @@ import React from 'react'
 import {graphql, useStaticQuery} from 'gatsby'
 import SEO from "../components/seo"
 import Layout from '../components/layoutDE'
+
 import partnerStyles from '../styles/partner.module.scss'
-import {documentToReactComponents} from '@contentful/rich-text-react-renderer'
 
 const Bedingungen = () => {
 
   const trust = useStaticQuery(graphql`
     query  {
-      contentfulAntitrustReminder {
-        antitrustReminder {
-          json
+        contentfulAsset(title: {eq: "AntiTrustReminder"}) {
+          fluid(quality: 10) {
+            base64
+            src
+          }
         }
       }
-    }
   `)
 
   return (
@@ -22,7 +23,7 @@ const Bedingungen = () => {
     <Layout>
       <SEO title="Antitrust Reminder" />
       <div className={partnerStyles.wrapper}>
-        {documentToReactComponents(trust.contentfulAntitrustReminder.antitrustReminder.json)}
+          <img src={trust.contentfulAsset.fluid.src} className={partnerStyles.imageStyle} alt="" width="80%"/>
       </div>
     </Layout>
     </div>

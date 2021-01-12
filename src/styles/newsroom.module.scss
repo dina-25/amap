@@ -1,6 +1,6 @@
 .wrapper {
   width: 80%;
-  display: grid;
+  display: block;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
@@ -26,6 +26,8 @@
 
 .post-style{
   padding: .5rem;
+  font-family: arial;
+  font-size: 2vh;
 }
 
 .post-style-event{

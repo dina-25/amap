@@ -1,6 +1,6 @@
 .wrapper {
   width: 80%;
-  display: block;
+  display: table;
   margin-left: auto;
   margin-right: auto;
 }
@@ -25,10 +25,16 @@
 
 .post-style{
   padding: .5rem;
-  text-align:justify;
+  text-align:left;
+  display: table;
+  font-family: arial;
+  font-size: 2vh;
+  justify-content:flex-start;
 }
 
 .post-style-event{
   padding-bottom:  2rem;
   text-align:justify;
+  font-family: arial;
+  font-size: 2vh;
 }

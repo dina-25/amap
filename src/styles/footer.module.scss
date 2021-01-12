@@ -1,15 +1,15 @@
 .footer {
   margin-left: auto;
   margin-right: auto;
-  min-width: 85%;
+  width: 90%;
   background-color: #0072bc;
   color: white;
-  padding-left: 2rem;
-  padding-right: 3.2rem;
-  padding-top: 1rem;
+  padding-left: 1vw;
+  padding-right: 2vw;
+  padding-top: 1vw;
   font-size: .8em;
   font-family: arial;
-  margin-top: 1.8rem;
+  margin-top: 1.8vw;
   overflow: hidden;
 }
 
@@ -28,7 +28,8 @@
 .footer-item {
   text-decoration: none;
   position: relative;
-  margin-left: 2rem;
+  padding: 1vw;
+  margin: 0 auto;
   float: right;
   color: white;
 }
