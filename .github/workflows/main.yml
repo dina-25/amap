@@ -1,7 +1,0 @@
-- name: Firebase CLI Deployment
-  # You may pin to the exact commit or the version.
-  # uses: doonstore/firebase-deploy@3c07a0714007ef3bec30f35ed62f43b13cf48ad5
-  uses: doonstore/firebase-deploy@v1
-  with:
-    # Additional parameters for firebase command
-    params: # optional, default is 
