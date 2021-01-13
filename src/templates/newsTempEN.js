@@ -19,25 +19,26 @@ query newsTempQueryEN($slug: String!)  {
             src
           }
         }
-          weiterInfo {
-            content {
-                data {
-                  target {
-                    fields {
-                      file {
-                        en {
-                          url
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-          json
-        }
-      }
-    }
+        weiterInfo {
+         content {
+             data {
+               target {
+                 fields {
+                   file {
+                     en {
+                       url
+                     }
+                   }
+                 }
+               }
+             }
+           }
+       json
+     }
+   }
+ }
 `
+
 const option = {
   renderNode: {
   [BLOCKS.EMBEDDED_ASSET]: node => {
@@ -50,17 +51,20 @@ const option = {
 },
 }
 
+
 const NewsDetailsEN = (props) => {
+
+
 
     return (
       <Layout>
-          <SEO title={props.data.contentfulAktuelles.slug}/>
-            <div className={newsStyles.wrapper}>
-              <h3 className={homeStyle.titleStyling}>{props.data.contentfulAktuelles.title}</h3>
-              <p>{documentToReactComponents(props.data.contentfulAktuelles.weiterInfo.json,option)}</p>
-              <button onClick={() => { navigate(-1) }} className={articleStyles.buttonStyling}>Back</button>
-            </div>
-      </Layout>
+         <SEO title={props.data.contentfulAktuelles.slug}/>
+           <div className={newsStyles.wrapper}>
+             <h3 className={homeStyle.titleStyling}>{props.data.contentfulAktuelles.title}</h3>
+             <p>{documentToReactComponents(props.data.contentfulAktuelles.weiterInfo.json,option)}</p>
+             <button onClick={() => { navigate(-1) }} className={articleStyles.buttonStyling}>Back</button>
+           </div>
+     </Layout>
     )
 }
 

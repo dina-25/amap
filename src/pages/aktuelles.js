@@ -33,22 +33,18 @@ const Bedingungen = () => {
   `)
 
   return (
-
     <div>
     <Layout>
       <SEO title="Aktuelles" />
-
       <div className={partnerStyles.wrapper}>
         <ol className={articleStyles.articles}>
         {newsQuery.allContentfulAktuelles.edges.map((edge) => {
           return(
             <li>
-              <h4 lang="de-DE" className={homeStyle.titleStyling}>{edge.node.title}</h4>
+              <h4  className={homeStyle.titleStyling}>{edge.node.title}</h4>
               <div className={listStyles.clearfix}>
                 <img alt="" className={listStyles.postImgStyle} src={edge.node.teaser.fluid.src} />
-                <p lang="de" className={listStyles.postStyle}>
-                {documentToReactComponents(edge.node.inhalt.json)}</p>
-
+                <p className={listStyles.postStyle}>{documentToReactComponents(edge.node.inhalt.json)}</p>
                 <Link to={edge.node.slug} className='black-text d-flex justify-content-end'>
                   <h5>
                     Read more
@@ -63,7 +59,6 @@ const Bedingungen = () => {
           </div>
       </Layout>
       </div>
-      
     )
   }
 

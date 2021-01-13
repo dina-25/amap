@@ -105,7 +105,7 @@ const indexEn = useStaticQuery(graphql`
         })}
         </div>
 
-      <div class="col-xs-14 col-sm-12 col-md-9 col-lg-4 col-xl-4" >
+      <div class="col-xs-14 col-sm-6 col-md-9 col-lg-4 col-xl-4" >
           {indexEn.wasMachenWir.edges.map((edge)=>{
             return(
                     <div className={homeStyle.colMd4}>
@@ -115,7 +115,7 @@ const indexEn = useStaticQuery(graphql`
                 )
           })}
           </div>
-        <div class="col-xs-14 col-sm-12 col-md-9 col-lg-4 col-xl-4" >
+        <div class="col-xs-14 col-sm-6 col-md-9 col-lg-4 col-xl-4" >
             {indexEn.unserLeistung.edges.map((edge)=>{
               return(
                       <div className={homeStyle.colMd4}>

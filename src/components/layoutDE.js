@@ -7,9 +7,6 @@ import '../styles/index.scss'
 import LayoutStyles from '../styles/layout.module.scss'
 import headerStyles from '../styles/header.module.scss'
 import ScrollUp from './scrollButton'
-import christmas from '../styles/christmas.module.scss'
-import Christmas from './christmasLights'
-
 const Layout = ({ children, intl }) => {
    const data = useStaticQuery(graphql`
      query{

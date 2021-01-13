@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBRow, MDBCarousel, MDBIcon } from 'mdbreact';
+import { MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBRow, MDBIcon } from 'mdbreact';
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import CardStyling from '../styles/map.module.scss'

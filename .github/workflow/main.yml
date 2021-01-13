@@ -15,4 +15,3 @@ jobs:
           access-token: ${{ secrets.amap }}
           deploy-branch: gh-pages
           gatsby-args: --prefix-paths
-- name: Gatsby Publish

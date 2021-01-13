@@ -1,6 +1,5 @@
 const path = require('path')
-const webpack = require('webpack')
-const { BLOCKS, INLINES } = require('@contentful/rich-text-types')
+const webpack = require('webpack');
 
 
 exports.onCreateWebpackConfig = ({

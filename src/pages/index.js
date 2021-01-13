@@ -88,15 +88,15 @@ const IndexPageDE = () => {
   return (
     <LayoutD>
       <SEO title="Home" />
+
       <div className={homeStyle.feedback}>
-  			<a href="/aktuelles/CoronaCrisis">Nächste Kolloquien</a>
-  		</div>
+        <a href="/aktuelles/CoronaCrisis">Nächste Kolloquien</a>
+      </div>
       <div className={homeStyle.feedback1}>
-  			<a href="#news">Unsere Neuigkeiten</a>
-  		</div>
-
+        <a href="#news">Unsere Neuigkeiten</a>
+      </div>
+      
     <div className={homeStyle.bodyWidth}>
-
       <Carousel/>
       <h3 className={homeStyle.titleStyling}>Unser Leistungsprofil</h3>
       <div class="container-fluid">
@@ -112,7 +112,7 @@ const IndexPageDE = () => {
               )
         })}
           </div>
-        <div class="col-xs-14 col-sm-12 col-md-9 col-lg-4 col-xl-4" >
+        <div class="col-xs-14 col-sm-6 col-md-9 col-lg-4 col-xl-4" >
           {data.wasMachenWir.edges.map((edge)=>{
               const document = edge.node.details.json
             return(
@@ -123,7 +123,7 @@ const IndexPageDE = () => {
                 )
           })}
             </div>
-          <div class="col-xs-14 col-sm-12 col-md-9 col-lg-4 col-xl-4" >
+          <div class="col-xs-14 col-sm-6 col-md-9 col-lg-4 col-xl-4" >
             {data.unserLeistung.edges.map((edge)=>{
                 const document = edge.node.details.json
               return(
@@ -137,6 +137,7 @@ const IndexPageDE = () => {
         </div>
 
       </div>
+
 
         <h3 className={homeStyle.titleStyling}>Unsere Kompetenzen</h3>
         <div className={homeStyle.wabe}>

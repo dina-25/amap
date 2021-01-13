@@ -67,7 +67,7 @@ export default class FixedNavbarExample extends React.Component {
                       <span  className={headerStyles.menuItemDrop}>News/Aktuelles</span>
                     </MDBDropdownToggle>
                     <MDBDropdownMenu>
-                    <MDBDropdownItem href="/aktuelles/CoronaCrisis">Zukünftige Kolloquien</MDBDropdownItem>
+                    <MDBDropdownItem href="/aktuelles/CoronaCrisis">Zukunftige Kolloquien</MDBDropdownItem>
                     <MDBDropdownItem href="/BisherigeKolloq">Bisherige Kolloquien</MDBDropdownItem>
                     <MDBDropdownItem href="/forschung">Publikationen</MDBDropdownItem>
                     <MDBDropdownItem href="/newsroom">Pressespiegel</MDBDropdownItem>

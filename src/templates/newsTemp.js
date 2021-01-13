@@ -19,27 +19,27 @@ query newsTempQuery($slug: String!)  {
             src
           }
         }
-          weiterInfo {
-          content {
-              data {
-                target {
-                  fields {
-                    file {
-                      de {
-                        url
-                      }
+        weiterInfo {
+        content {
+            data {
+              target {
+                fields {
+                  file {
+                    de {
+                      url
                     }
                   }
                 }
               }
             }
-            json
           }
+          json
         }
       }
-    `
+    }
+`
 
-    const options = {
+const options = {
       renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: node => {
         return (
@@ -57,13 +57,13 @@ const NewsDetails = (props) => {
 
     return (
       <Layout>
-          <SEO title={props.data.contentfulAktuelles.slug}/>
-          <div className={newsStyles.wrapper}>
-          <h3 className={homeStyle.titleStyling}>{props.data.contentfulAktuelles.title}</h3>
-          <p>{documentToReactComponents(props.data.contentfulAktuelles.weiterInfo.json,options)}</p>
-          <button onClick={() => { navigate(-1) }} className={articleStyles.buttonStyling}>Zurück</button>
-      </div>
-      </Layout>
+         <SEO title={props.data.contentfulAktuelles.slug}/>
+         <div className={newsStyles.wrapper}>
+         <h3 className={homeStyle.titleStyling}>{props.data.contentfulAktuelles.title}</h3>
+         <p>{documentToReactComponents(props.data.contentfulAktuelles.weiterInfo.json,options)}</p>
+         <button onClick={() => { navigate(-1) }} className={articleStyles.buttonStyling}>Zurück</button>
+     </div>
+     </Layout>
     )
 }
 
