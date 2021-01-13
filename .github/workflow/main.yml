@@ -15,3 +15,7 @@ jobs:
           access-token: ${{ secrets.amap }}
           deploy-branch: gh-pages
           gatsby-args: --prefix-paths
+<<<<<<< HEAD:.github/workflow/main.yml
+=======
+
+>>>>>>> 643c2f12ec5ab023112757fc5627ab6e484a77c0:.github/workflows/mail.yml
