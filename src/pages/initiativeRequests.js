@@ -39,7 +39,7 @@ const partnerQuery = useStaticQuery(graphql`
   return (
     <div>
     <Layout>
-      <SEO title="Gefördete Projekte mit Teilnahme con AMAP Konsortien" />
+      <SEO title="Gefördete Projekte mit Teilnahme von AMAP Konsortien" />
       <div className={partnerStyles.wrapper}>
         <h3 className={homeStyle.titleStyling}>Gefördete Projekte mit Teilnahme con AMAP Konsortien</h3>
         <ol className={partnerStyles.mitgliedern}>
