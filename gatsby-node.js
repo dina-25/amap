@@ -1,6 +1,15 @@
 const path = require('path')
 const webpack = require('webpack');
 
+const fs = require("fs");
+exports.onPostBuild = () => {
+  fs.copyFile(`./firebase.json`, `./public/firebase.json`, (err) => {
+    if (err) {
+      throw err;
+    }
+  });
+};
+
 
 exports.onCreateWebpackConfig = ({
     stage,
